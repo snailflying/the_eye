@@ -1,4 +1,8 @@
 <resources>
     <!--app_name在gradle内定义-->
     <!--<string name="app_name">MvvmLibrary</string>-->
+    <string name="home_bottom_home">首页</string>
+    <string name="home_bottom_popular_science">科普</string>
+    <string name="home_bottom_appointment">预约</string>
+    <string name="home_bottom_mine">我的</string>
 </resources>

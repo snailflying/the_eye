@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--通用核心层-->
+    <dimen name="font_headline_1">28sp</dimen>          <!--页面大标题-->
+    <dimen name="font_headline_2">22sp</dimen>          <!--模块标题/详情页演出名称-->
+    <dimen name="font_text_1">16sp</dimen>              <!--正文内容-->
+    <dimen name="font_text_2">14sp</dimen>              <!--正文内容-->
+    <dimen name="font_text_3">12sp</dimen>              <!--辅助描述-->
+    <!--framework业务层-->
+    <dimen name="font_number_0">26sp</dimen>            <!--数字1-->
+    <dimen name="font_number_1">22sp</dimen>            <!--数字2-->
+    <dimen name="font_number_2">20sp</dimen>            <!--数字3-->
+    <dimen name="font_number_3">18sp</dimen>            <!--数字4-->
+    <dimen name="font_number_4">16sp</dimen>            <!--数字5-->
+    <dimen name="font_headline_0">40sp</dimen>          <!--艺人详情页-->
+    <dimen name="font_headline_3">18sp</dimen>          <!--页面内小标题-->
+    <dimen name="font_headline_floor">20sp</dimen>          <!--首页楼层标题，特殊-->
+    <dimen name="font_text_0">18sp</dimen>              <!--标题栏文字/页面内文字-->
+    <dimen name="font_text_4">10sp</dimen>              <!--标签内文字/部分图标文字-->
+    <!--字体大小End-->
+</resources>

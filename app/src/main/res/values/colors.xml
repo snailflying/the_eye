@@ -3,4 +3,27 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="color_major">#FF7654FF</color>                     <!-- 主色-->
+    <color name="color_major_pressed">#FF5938DD</color>           <!-- 按下：品牌主色/按钮背景/点击文字-->
+    <color name="color_minor">#FF418D92</color>                   <!-- 可点击文字/辅助色-->
+    <color name="color_minor_pressed">#FF1A6B71</color>           <!-- 按下：辅助色/按钮背景/点击文字-->
+    <color name="color_headline_1">#FF000000</color>                    <!-- 主要标题色-->
+    <color name="color_headline_2">#FF333333</color>                        <!-- 次要标题色-->
+    <color name="color_text_1">#FF333333</color>                        <!-- 一级文字色-->
+    <color name="color_text_2">#FF666666</color>                        <!-- 二级文字色-->
+    <color name="color_text_3">#FF999999</color>                        <!-- 三级文字色-->
+    <color name="color_text_reverse_1">#FFFFFFFF</color>                 <!-- 一级反白文字色-->
+    <color name="color_text_link">#FF7654FF</color>                     <!-- 可点击文字/主色/链接文字-->
+    <color name="color_text_tip">#FFDC7400</color>                 <!-- 提示/警告（不可点击）-->
+    <color name="color_text_disabled">#FFCCCCCC</color>      <!-- 不可用文字颜色-->
+    <color name="color_text_placeholder">#FFCFCFCF</color>      <!-- 输入框提示文案-->
+    <color name="color_background_1">#FFFFFFFF</color>                   <!-- 主要背景，页面或者大模块的背景-->
+    <color name="color_background_2">#FFF4F4F4</color>                    <!-- 辅助背景，单个view的背景-->
+    <color name="color_line">#FFE6E6E6</color>                       <!-- 普通分割线颜色，一般用于列表页-->
+    <color name="color_border">#FFDDDDDD</color>                  <!-- 普通边框-->
+
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="home_tab">
+        <item>@string/home_bottom_home</item>
+        <item>@string/home_bottom_popular_science</item>
+        <item>@string/home_bottom_appointment</item>
+        <item>@string/home_bottom_mine</item>
+    </array>
+</resources>

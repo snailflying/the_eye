@@ -1,6 +1,7 @@
 package com.theone.framework.base
 
 import android.app.Application
+import com.theone.framework.BuildConfig
 import kotlin.properties.Delegates
 
 /**
@@ -15,9 +16,14 @@ open class BaseApp : Application() {
         application = this
     }
 
+
     companion object {
 
         var application: BaseApp by Delegates.notNull()
             private set
+
+        fun isDebug(): Boolean {
+            return BuildConfig.DEBUG
+        }
     }
 }
