@@ -7,7 +7,6 @@ import com.theone.framework.base.BaseApp
 /**
  * @Author zhiqiang
  * @Date 2019-06-27
- * @Email liuzhiqiang@moretickets.com
  * @Description
  */
 class App : BaseApp() {

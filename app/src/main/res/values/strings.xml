@@ -5,4 +5,8 @@
     <string name="home_bottom_popular_science">科普</string>
     <string name="home_bottom_appointment">预约</string>
     <string name="home_bottom_mine">我的</string>
+
+    <string name="page_error_service">页面出错啦</string>
+    <string name="page_error_service_tips">糟糕，请返回重新试一下吧</string>
+    <string name="rmb_symbol">¥</string>
 </resources>

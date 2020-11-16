@@ -8,7 +8,6 @@ import retrofit2.http.POST
 
 /**
  * @Author zhiqiang
- * @Email liuzhiqiang@moretickets.com
  * @Date 2019-06-19
  * @Description
  */

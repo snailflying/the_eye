@@ -53,7 +53,7 @@ import java.util.*
 
 /**
  * @Author zhiqiang
- * @Email liuzhiqiang@moretickets.com
+
  * @Date 2019/2/16
  * @Description dialog的基类
  */

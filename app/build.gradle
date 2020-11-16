@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+//router
+apply plugin: 'com.chenenyu.router'
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     defaultConfig {
@@ -78,16 +79,13 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${rootProject.ext.version["appcompat"]}"
     implementation "androidx.core:core-ktx:${rootProject.ext.version["core_ktx"]}"
     implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.version["constraintlayout"]}"
-
+    //bottomsheet ViewPager2
+    implementation "com.google.android.material:material:${rootProject.ext.version["material"]}"
     //rxjava
     implementation "io.reactivex.rxjava3:rxjava:${rootProject.ext.version["rxjava"]}"
     implementation "io.reactivex.rxjava3:rxandroid:${rootProject.ext.version["rxandroid"]}"
     implementation "io.reactivex.rxjava3:rxkotlin:${rootProject.ext.version["rxkotlin"]}"
 
-    //network
-    implementation "com.squareup.okhttp3:okhttp:${rootProject.ext.version["okhttp3"]}"
-    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.version["okhttp3"]}"
-    implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.version["retrofit2"]}"
-    implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.version["retrofit2"]}"
-    implementation "com.squareup.retrofit2:adapter-rxjava3:${rootProject.ext.version["retrofit2"]}"
+    implementation "com.drakeet.multitype:multitype:${rootProject.ext.version["multitype"]}"
+
 }

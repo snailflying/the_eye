@@ -7,7 +7,7 @@ import org.junit.Test
 /**
  * @Author zhiqiang
  * @Date 2019-11-21
- * @Email liuzhiqiang@moretickets.com
+
  * @Description
  */
 class Standard_ExtKtTest {

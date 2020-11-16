@@ -11,7 +11,6 @@ import java.io.IOException
 
 /**
  * @Author zhiqiang
- * @Email liuzhiqiang@moretickets.com
  * @Date 2019/2/28
  * @Description OkHttp拦截器:向请求头(Header)添加公共参数
  */

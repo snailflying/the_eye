@@ -9,7 +9,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 
 /**
  * @Author zhiqiang
- * @Email liuzhiqiang@moretickets.com
  * @Date 2019-06-11
  * @Description
  */

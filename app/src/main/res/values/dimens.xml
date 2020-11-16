@@ -18,4 +18,10 @@
     <dimen name="font_text_0">18sp</dimen>              <!--标题栏文字/页面内文字-->
     <dimen name="font_text_4">10sp</dimen>              <!--标签内文字/部分图标文字-->
     <!--字体大小End-->
+    <!--通用核心层-->
+    <dimen name="dimension_margin_horizon">24dp</dimen>          <!--一般页面左右间距为各自预留-->
+    <dimen name="dimension_margin_vertical">48dp</dimen>         <!--不同模块间距-->
+    <dimen name="dimension_border_width">1dp</dimen>             <!--一般页面分割线/海报描边-->
+    <dimen name="dimension_line_height">0.5dp</dimen>             <!--一般页面分割线/海报描边-->
+    <dimen name="dimension_corner_radius">8dp</dimen>                   <!--大按钮/资源位圆角-->
 </resources>
