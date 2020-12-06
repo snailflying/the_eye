@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.themone.core.base.impl.CoreFragment
+import com.themone.core.util.StatusBarUtil
 import com.theone.eye.R
 import com.theone.eye.databinding.ActivityHomeBinding
 import com.theone.framework.base.BaseActivity
@@ -26,8 +27,11 @@ class HomeActivity : BaseActivity() {
         setContentView(binding.root)
         initViewPager()
         setBottomBar()
+        setStatusBar()
     }
-
+   private fun setStatusBar() {
+        StatusBarUtil.compat(this, true)
+    }
     private fun setBottomBar(){
         val tabs = resources.getStringArray(R.array.home_tab)
         val smartTabAdapter = object : SimpleSmartTabAdapter(R.layout.home_tab_smart_tab_text) {
