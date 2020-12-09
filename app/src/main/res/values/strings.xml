@@ -9,4 +9,34 @@
     <string name="page_error_service">页面出错啦</string>
     <string name="page_error_service_tips">糟糕，请返回重新试一下吧</string>
     <string name="rmb_symbol">¥</string>
+
+    <!-- 登录   -->
+    <string name="title_login_register">登录/注册</string>
+    <string name="action_get_verify_code">获取验证码</string>
+    <string name="title_login">登录</string>
+    <string name="title_done">完成</string>
+    <string name="title_login_by_verify_code">验证码登录</string>
+    <string name="title_register">注册</string>
+    <string name="lab_forget_password">忘记密码?</string>
+    <string name="lab_login_by_verify_code">验证码登录</string>
+    <string name="lab_login_by_password">密码登录</string>
+    <string name="tip_please_input_phone_number">请输入手机号码</string>
+    <string name="title_phone_number">手机号码</string>
+    <string name="title_password">密码</string>
+    <string name="title_old_password">旧密码</string>
+    <string name="hint_please_input_verify_code">请输入密码</string>
+    <string name="lab_verify_code">密码</string>
+    <string name="tip_password_error">密码必须是6~16位字母和数字的组合！</string>
+    <string name="tip_new_password_error">新密码必须是6~16位字母和数字的组合！</string>
+    <string name="tip_phone_number_error">无效的手机号！</string>
+    <string name="regex_phone_number">^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(16[6])|(17[0,1,3,5-8])|(18[0-9])|(19[8,9]))\\d{8}$</string>
+    <string name="tip_verify_code_error">请输入6位数密码</string>
+    <string name="regex_verify_code">^\\d{6}$</string>
+    <string name="regex_password">^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$</string>
+    <string name="title_forget_password">重置密码</string>
+    <string name="lab_register_account">点击注册即表示同意</string>
+    <string name="lab_service_protocol"><![CDATA[<用户协议>]]></string>
+    <string name="lab_logout_confirm">是否确认退出账号？</string>
+    <string name="title_jump_login">跳过</string>
+
 </resources>

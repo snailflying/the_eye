@@ -82,20 +82,21 @@ dependencies {
     implementation project(':libraryframework')
 
     //kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.version["kotlin_stdlib_jdk7"]}"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.ext.version["kotlinx_coroutines"]}"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.ext.version["kotlinx_coroutines"]}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.kotlin_stdlib_jdk7}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.ext.kotlinx_coroutines}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.ext.kotlinx_coroutines}"
 
-    implementation "androidx.appcompat:appcompat:${rootProject.ext.version["appcompat"]}"
-    implementation "androidx.core:core-ktx:${rootProject.ext.version["core_ktx"]}"
-    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.version["constraintlayout"]}"
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appcompat}"
+    implementation "androidx.core:core-ktx:${rootProject.ext.core_ktx}"
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintlayout}"
     //bottomsheet ViewPager2
-    implementation "com.google.android.material:material:${rootProject.ext.version["material"]}"
+    implementation "com.google.android.material:material:${rootProject.ext.material}"
     //rxjava
-    implementation "io.reactivex.rxjava3:rxjava:${rootProject.ext.version["rxjava"]}"
-    implementation "io.reactivex.rxjava3:rxandroid:${rootProject.ext.version["rxandroid"]}"
-    implementation "io.reactivex.rxjava3:rxkotlin:${rootProject.ext.version["rxkotlin"]}"
+    implementation "io.reactivex.rxjava3:rxjava:${rootProject.ext.rxjava}"
+    implementation "io.reactivex.rxjava3:rxandroid:${rootProject.ext.rxandroid}"
+    implementation "io.reactivex.rxjava3:rxkotlin:${rootProject.ext.rxkotlin}"
+    implementation "com.hjq:titlebar:${rootProject.ext.titlebar}"
 
-    implementation "com.drakeet.multitype:multitype:${rootProject.ext.version["multitype"]}"
+    implementation "com.drakeet.multitype:multitype:${rootProject.ext.multitype}"
 
 }

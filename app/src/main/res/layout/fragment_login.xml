@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_background_1">
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/dimension_margin_horizon" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/dimension_margin_horizon" />
+
+    <com.hjq.bar.TitleBar
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/main_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:leftIcon="@drawable/ic_back"
+            app:title="登录"
+            app:titleColor="@color/text_color_title"
+            app:titleSize="18sp" />
+
+    <TextView
+            android:id="@+id/titleTv"
+            style="@style/Setting.Title"
+            android:layout_marginTop="@dimen/dimension_margin_vertical_1"
+            android:text="您好"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/titleBar" />
+
+    <TextView
+            android:id="@+id/tipTv"
+            style="@style/Setting.Content"
+            android:layout_marginTop="10dp"
+            android:text="欢迎登录"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/titleTv" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/phoneIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_vertical_fix"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/tipTv"
+            app:srcCompat="@drawable/ic_phone" />
+
+    <EditText
+            android:id="@+id/phoneNumberEt"
+            style="@style/Setting.Edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:hint="@string/tip_please_input_phone_number"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@id/phoneIv"
+            app:layout_constraintLeft_toRightOf="@id/phoneIv"
+            app:layout_constraintRight_toRightOf="@id/rightGuide"
+            app:layout_constraintTop_toTopOf="@id/phoneIv" />
+
+    <View
+            android:id="@+id/phoneLineView"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
+            android:background="@color/line_color"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+            app:layout_constraintRight_toRightOf="@id/rightGuide"
+            app:layout_constraintTop_toBottomOf="@id/phoneIv" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/passwordIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimension_margin_vertical_1"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/phoneLineView"
+            app:srcCompat="@drawable/ic_password" />
+
+    <EditText
+            android:id="@+id/verifyCodeEt"
+            style="@style/Setting.Edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:hint="@string/hint_please_input_verify_code"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="@id/passwordIv"
+            app:layout_constraintLeft_toRightOf="@id/passwordIv"
+            app:layout_constraintRight_toRightOf="@id/rightGuide"
+            app:layout_constraintTop_toTopOf="@id/passwordIv" />
+
+    <View
+            android:id="@+id/passwordLineView"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
+            android:background="@color/line_color"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+            app:layout_constraintRight_toRightOf="@id/rightGuide"
+            app:layout_constraintTop_toBottomOf="@id/passwordIv" />
+
+    <TextView
+            android:id="@+id/loginBtn"
+            style="@style/AppBtn.Login"
+            android:layout_width="0dp"
+            android:enabled="false"
+            android:text="@string/title_login"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+            app:layout_constraintRight_toRightOf="@id/rightGuide"
+            app:layout_constraintTop_toBottomOf="@id/passwordLineView" />
+
+    <TextView
+            android:id="@+id/otherLoginNameTv"
+            style="@style/Setting.Desc"
+            android:layout_gravity="start"
+            android:layout_marginTop="14dp"
+            android:text="暂无账号？"
+            app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/loginBtn" />
+
+    <TextView
+            android:id="@+id/otherLoginTv"
+            style="@style/Setting.Link"
+            android:layout_gravity="start"
+            android:text="去注册"
+            app:layout_constraintBaseline_toBaselineOf="@id/otherLoginNameTv"
+            app:layout_constraintLeft_toRightOf="@id/otherLoginNameTv"
+            app:layout_constraintTop_toBottomOf="@id/loginBtn" />
+
+    <TextView
+            android:id="@+id/forgetPasswordTv"
+            style="@style/Setting.Link"
+            android:text="忘记密码"
+            app:layout_constraintBaseline_toBaselineOf="@id/otherLoginNameTv"
+            app:layout_constraintRight_toRightOf="@id/rightGuide" />
+</androidx.constraintlayout.widget.ConstraintLayout>

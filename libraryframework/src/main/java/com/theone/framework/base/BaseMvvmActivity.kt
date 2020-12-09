@@ -1,10 +1,12 @@
 package com.theone.framework.base
 
 import android.content.Context
-import android.util.Log
+import androidx.annotation.IdRes
 import com.themone.core.base.IViewModel
+import com.themone.core.base.impl.CoreFragment
 import com.themone.core.base.impl.CoreMvvmActivity
 import com.themone.core.util.LogUtil
+import com.theone.framework.R
 import com.theone.framework.util.I18NUtil
 
 /**

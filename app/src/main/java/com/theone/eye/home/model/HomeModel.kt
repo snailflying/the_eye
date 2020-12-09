@@ -16,14 +16,15 @@ import io.reactivex.rxjava3.core.Observable
  */
 class HomeModel : BaseModel<ApiService>(ApiService::class.java), IHomeModel {
 
-
     override fun getHomeFloor(): Observable<ApiResponse<FloorBean>> {
         return Observable.just(ApiResponse<FloorBean>(data = FloorBean().also {
             it.type = FloorTypeConstants.FLOOR_TITLE_ONE
             it.rooms?.add(FloorRoom().apply {
                 this.type = FloorTypeConstants.ROOM_BANNER
-                this.items?.add(FloorItem().also {
-                    it.setImageUrl(HOME_BANNER)
+                this.items?.add(FloorItem().also { item ->
+                    item.setImageUrl(HOME_BANNER)
+                    item.setImageUrl(HOME_BANNER)
+                    item.setImageUrl(HOME_BANNER)
                 })
             })
         }, statusCode = 200, message = ""))

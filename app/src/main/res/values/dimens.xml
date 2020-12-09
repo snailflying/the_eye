@@ -24,4 +24,50 @@
     <dimen name="dimension_border_width">1dp</dimen>             <!--一般页面分割线/海报描边-->
     <dimen name="dimension_line_height">0.5dp</dimen>             <!--一般页面分割线/海报描边-->
     <dimen name="dimension_corner_radius">8dp</dimen>                   <!--大按钮/资源位圆角-->
+    <!--!!!!!!!!!!!!UED规范 START!!!!!!!!!!!!!-->
+
+    <!--framework业务层-->
+    <dimen name="dimension_margin_horizon_2">20dp</dimen>         <!--相同模块-->
+    <dimen name="dimension_margin_horizon_3">16dp</dimen>         <!--相同模块-->
+    <dimen name="dimension_margin_horizon_4">8dp</dimen>         <!--相同模块-->
+    <dimen name="dimension_margin_vertical_1">24dp</dimen>         <!--相同模块-->
+    <dimen name="dimension_margin_vertical_2">16dp</dimen>         <!--待定-->
+    <dimen name="dimension_margin_vertical_3">8dp</dimen>         <!--待定-->
+    <dimen name="dimension_line_height_0">1dp</dimen>             <!--一般页面分割线/海报描边-->
+    <dimen name="dimension_corner_radius_0">12dp</dimen>                  <!--页面圆角-->
+    <dimen name="dimension_corner_radius_1">4dp</dimen>                  <!--标签圆角-->
+    <dimen name="dimension_corner_radius_2">2dp</dimen>                   <!--小标签圆角-->
+    <dimen name="dimension_border_width_1">0.5dp</dimen>             <!--一般页面分割线/海报描边-->
+    <!--framework业务层Android拓展-->
+    <dimen name="margin_vertical_fix">36dp</dimen>         <!--相同模块-->
+    <dimen name="margin_vertical_fixed_1">12dp</dimen>         <!--待定-->
+    <dimen name="margin_horizon_fixed_1">12dp</dimen>         <!--待定-->
+    <dimen name="home_notice_padding">44dp</dimen>         <!--margin24+padding20-->
+    <!--!!!!!!!!!!!!UED规范 END!!!!!!!!!!!!!-->
+
+    <!-- padding集合 -->
+    <dimen name="AppPadding1">1dip</dimen>
+    <dimen name="AppPadding2">2dip</dimen>
+    <dimen name="AppPadding3">3dip</dimen>
+    <dimen name="AppPadding4">4dip</dimen>
+    <dimen name="SmallerPadding6">6dip</dimen>
+    <dimen name="SmallPadding8">8dip</dimen>
+    <dimen name="MiddlePadding10">10dip</dimen>
+    <dimen name="NormalPadding12">12dip</dimen>
+    <dimen name="MidBigPadding14">14dip</dimen>
+    <dimen name="LargePadding16">16dip</dimen>
+    <dimen name="AppLargeBigPadding18">18dp</dimen>
+    <dimen name="BiggestPadding20">20dip</dimen>
+    <dimen name="BiggestPadding22">22dip</dimen>
+    <dimen name="LargerPadding24">24dip</dimen>
+    <dimen name="LargerPadding26">26dip</dimen>
+    <dimen name="LargerPadding30">30dip</dimen>
+    <dimen name="LargestPadding32">32dip</dimen>
+    <dimen name="LargestPadding34">34dip</dimen>
+    <dimen name="LargestPadding36">36dip</dimen>
+    <dimen name="LargestPadding38">38dip</dimen>
+    <dimen name="MoreLargestPadding40">40dip</dimen>
+    <dimen name="MoreLargestPadding54">54dip</dimen>
+    <dimen name="MoreLargestPadding60">60dip</dimen>
+    <dimen name="MoreLargestPadding78">78dip</dimen>
 </resources>
