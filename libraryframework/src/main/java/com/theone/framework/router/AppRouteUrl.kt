@@ -8,5 +8,8 @@ package com.theone.framework.router
 object AppRouteUrl {
     const val ROUTE_WEB_URL = "web"
     const val WEB_DATA_URL = "url"
+    const val LOGIN_URL = "login"
+    const val REGISTER_URL = "register"
+    const val RESET_PWD_URL = "reset_pwd"
 
 }

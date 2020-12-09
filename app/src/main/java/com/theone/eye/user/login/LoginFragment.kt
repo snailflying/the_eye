@@ -8,10 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import cn.magicwindow.core.ext.finishWithAnim
 import com.hjq.bar.OnTitleBarListener
+import com.theone.eye.base.user.User
 import com.theone.eye.databinding.FragmentLoginBinding
 import com.theone.framework.base.BaseMvvmFragment
 import com.theone.framework.ext.clickWithTrigger
+import com.theone.framework.router.AppRouteUrl
+import com.theone.framework.router.AppRouter
 
 /**
  * @Author ZhiQiang
@@ -36,6 +40,14 @@ class LoginFragment : BaseMvvmFragment<LoginViewModel>() {
         setTitleBar()
         setEdit()
         setOnClickListener()
+        initObserver()
+    }
+
+    private fun initObserver() {
+        viewModel.loginLive.observe(viewLifecycleOwner, {
+            User.currentUser.login(it)
+            activity?.finishWithAnim()
+        })
     }
 
     private fun setOnClickListener() {
@@ -43,6 +55,12 @@ class LoginFragment : BaseMvvmFragment<LoginViewModel>() {
             val phoneNumber: String? = binding.phoneNumberEt.editableText?.toString()?.trim()
             val password: String? = binding.verifyCodeEt.editableText?.toString()?.trim()
             viewModel.loginByVerifyCode(phoneNumber, password)
+        }
+        binding.forgetPasswordTv.clickWithTrigger {
+            AppRouter.build(AppRouteUrl.RESET_PWD_URL).go(this)
+        }
+        binding.registerTv.clickWithTrigger {
+            AppRouter.build(AppRouteUrl.REGISTER_URL).go(this)
         }
     }
 

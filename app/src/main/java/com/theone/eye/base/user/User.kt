@@ -1,7 +1,7 @@
 package com.theone.eye.base.user
 
+import com.theone.eye.user.login.entity.LoginRes
 import com.theone.framework.http.HttpClient
-import com.theone.eye.base.user.entity.LoginEn
 import java.io.Serializable
 
 /**
@@ -68,15 +68,15 @@ class User private constructor() : Serializable {
      * 登录
      * @param userLogin LoginEn
      */
-    fun login(userLogin: LoginEn) {
+    fun login(userLogin: LoginRes) {
 
         //init
-        this.cellphone = userLogin.userVO?.cellphone ?: ""
+        this.cellphone = userLogin.cellphone ?: ""
         this.accessToken = userLogin.token ?: ""
         //fixme: 刷新token暂时没有
         this.refreshToken = userLogin.refreshToken ?: ""
-        this.userId = userLogin.userVO?.userId ?: ""
-        this.name = userLogin.userVO?.name ?: ""
+        this.userId = userLogin.userId ?: ""
+        this.name = userLogin.name ?: ""
         currentUser = this@User
     }
 

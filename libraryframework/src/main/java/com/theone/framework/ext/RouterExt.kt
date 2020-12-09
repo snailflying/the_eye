@@ -1,5 +1,6 @@
 package cn.magicwindow.core.ext
 
+import android.app.Activity
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -73,7 +74,7 @@ fun FragmentManager.fragmentTransaction(): FragmentTransaction {
  * 带Anim的结束finish
  * @receiver BaseActivity
  */
-fun BaseActivity.finishWithAnim() {
+fun Activity.finishWithAnim() {
     finish()
     overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right)
 }

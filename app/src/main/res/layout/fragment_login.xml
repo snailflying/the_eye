@@ -131,7 +131,7 @@
             app:layout_constraintTop_toBottomOf="@id/loginBtn" />
 
     <TextView
-            android:id="@+id/otherLoginTv"
+            android:id="@+id/registerTv"
             style="@style/Setting.Link"
             android:layout_gravity="start"
             android:text="去注册"

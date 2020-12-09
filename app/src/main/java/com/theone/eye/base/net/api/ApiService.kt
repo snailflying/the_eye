@@ -1,6 +1,9 @@
 package com.theone.eye.base.net.api
 
 import com.theone.eye.home.entity.HomeEn
+import com.theone.eye.user.login.entity.LoginReq
+import com.theone.eye.user.login.entity.LoginRes
+import com.theone.framework.http.ApiResponse
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -12,6 +15,19 @@ import retrofit2.http.POST
  * @Description
  */
 interface ApiService {
+
+    /**
+     * 全路径
+     * @return Observable<HomeEn>
+     */
+    @GET("https://api.mock.live/mock_android.json")
+    fun getMock(): Observable<HomeEn>
+
+    /**
+     * Normal
+     */
+    @POST("pub/login")
+    fun login(@Body loginRes: LoginReq): Observable<ApiResponse<LoginRes>>
 
     companion object {
 
@@ -30,18 +46,5 @@ interface ApiService {
         const val HEADER_NO_CACHE = "no-cache, no-store, "
         const val VERSION_UPDATE = "http://7xk0r4.dl1.z0.glb.clouddn.com/version.json"
     }
-
-    /**
-     * 全路径
-     * @return Observable<HomeEn>
-     */
-    @GET("https://api.mock.live/mock_android.json")
-    fun getMock(): Observable<HomeEn>
-
-    /**
-     * Normal
-     */
-    @POST("pub/mock")
-    fun postMock(@Body homeEn: HomeEn): Observable<Any>
 
 }

@@ -2,7 +2,6 @@ package com.themone.core.base.impl
 
 import android.content.Context
 import android.os.Bundle
-import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import com.themone.core.util.LogUtil
 import io.reactivex.rxjava3.disposables.CompositeDisposable

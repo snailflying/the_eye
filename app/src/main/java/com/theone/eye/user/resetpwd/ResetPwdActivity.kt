@@ -2,9 +2,12 @@ package com.theone.eye.user.login
 
 import android.os.Bundle
 import cn.magicwindow.core.ext.toFragment
+import com.chenenyu.router.annotation.Route
 import com.theone.eye.R
 import com.theone.framework.base.BaseActivity
+import com.theone.framework.router.AppRouteUrl
 
+@Route(value = [AppRouteUrl.RESET_PWD_URL])
 class ResetPwdActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

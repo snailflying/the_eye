@@ -1,7 +1,8 @@
 package com.theone.eye.user.login
 
-import com.piaoyou.piaoxingqiu.app.entity.api.FloorBean
 import com.themone.core.base.IModel
+import com.theone.eye.user.login.entity.LoginReq
+import com.theone.eye.user.login.entity.LoginRes
 import com.theone.framework.http.ApiResponse
 import io.reactivex.rxjava3.core.Observable
 
@@ -10,13 +11,13 @@ import io.reactivex.rxjava3.core.Observable
  * @Date 2020/11/16
  * @Description
  */
-interface ILoginModel:IModel {
+interface ILoginModel : IModel {
 
     /**
-     * 加载数据列表
+     * 登录
      *
      * @param params
      * @return
      */
-    fun getHomeFloor(): Observable<ApiResponse<FloorBean>>
+    fun login(loginRes: LoginReq): Observable<ApiResponse<LoginRes>>
 }
