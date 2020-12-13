@@ -1,11 +1,8 @@
 package com.theone.eye.user.login
 
 import androidx.lifecycle.MutableLiveData
-import androidx.recyclerview.widget.RecyclerView
-import com.drakeet.multitype.MultiTypeAdapter
 import com.theone.eye.R
 import com.theone.eye.base.entity.VerifyCodeReq
-import com.theone.eye.home.adapter.HomeBannerBinder
 import com.theone.eye.user.register.entity.RegisterReq
 import com.theone.eye.user.register.entity.RegisterRes
 import com.theone.framework.base.BaseViewModel
@@ -18,23 +15,8 @@ import java.util.concurrent.CopyOnWriteArrayList
  * @Description
  */
 class RegisterViewModel(override var model: IRegisterModel = RegisterModel()) : BaseViewModel<IRegisterModel>() {
-    private val items = CopyOnWriteArrayList<Any>()
-    private val mHomeMultiAdapter: MultiTypeAdapter = MultiTypeAdapter(items)
     val verifyLive: MutableLiveData<Boolean> = MutableLiveData()
     val registerLive: MutableLiveData<RegisterRes> = MutableLiveData()
-
-    fun initRecyclerView(recyclerView: RecyclerView) {
-        //Banner
-        /**
-         * Banner切换时的回调
-         */
-        val homeBannerBinder = HomeBannerBinder()
-
-        mHomeMultiAdapter.register(homeBannerBinder)
-
-        recyclerView.adapter = mHomeMultiAdapter
-    }
-
 
     fun getVerifyCode(verifyCodeReq: VerifyCodeReq) {
         model.getVerifyCode(verifyCodeReq)
@@ -44,11 +26,12 @@ class RegisterViewModel(override var model: IRegisterModel = RegisterModel()) : 
                 }
 
                 override fun onResultFailed(statusCode: Int, comments: String?) {
-                    TODO("Not yet implemented")
+                    verifyLive.value = false
+
                 }
 
                 override fun onError(e: Throwable?) {
-                    TODO("Not yet implemented")
+                    verifyLive.value = false
                 }
 
             })

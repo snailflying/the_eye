@@ -1,16 +1,12 @@
 package com.theone.eye.user.login
 
 import androidx.lifecycle.MutableLiveData
-import androidx.recyclerview.widget.RecyclerView
-import com.drakeet.multitype.MultiTypeAdapter
 import com.theone.eye.R
 import com.theone.eye.base.entity.VerifyCodeReq
-import com.theone.eye.home.adapter.HomeBannerBinder
 import com.theone.eye.user.resetpwd.entity.ResetPwdReq
 import com.theone.eye.user.resetpwd.entity.ResetPwdRes
 import com.theone.framework.base.BaseViewModel
 import com.theone.framework.ext.getString
-import java.util.concurrent.CopyOnWriteArrayList
 
 /**
  * @Author zhiqiang
@@ -18,36 +14,24 @@ import java.util.concurrent.CopyOnWriteArrayList
  * @Description
  */
 class ResetPwdViewModel(override var model: IResetPwdModel = ResetPwdModel()) : BaseViewModel<IResetPwdModel>() {
-    private val items = CopyOnWriteArrayList<Any>()
-    private val mHomeMultiAdapter: MultiTypeAdapter = MultiTypeAdapter(items)
+    val verifyLive: MutableLiveData<Boolean> = MutableLiveData()
     val resetPwdLive: MutableLiveData<ResetPwdRes> = MutableLiveData()
-
-    fun initRecyclerView(recyclerView: RecyclerView) {
-        //Banner
-        /**
-         * Banner切换时的回调
-         */
-        val homeBannerBinder = HomeBannerBinder()
-
-        mHomeMultiAdapter.register(homeBannerBinder)
-
-        recyclerView.adapter = mHomeMultiAdapter
-    }
 
 
     fun getVerifyCode(verifyCodeReq: VerifyCodeReq) {
         model.getVerifyCode(verifyCodeReq)
             .subscribe(object : BaseObserver<Boolean>() {
                 override fun onResultSuccess(data: Boolean?) {
-                    TODO("Not yet implemented")
+                    verifyLive.value = data ?: false
                 }
 
                 override fun onResultFailed(statusCode: Int, comments: String?) {
-                    TODO("Not yet implemented")
+                    verifyLive.value = false
+
                 }
 
                 override fun onError(e: Throwable?) {
-                    TODO("Not yet implemented")
+                    verifyLive.value = false
                 }
 
             })
