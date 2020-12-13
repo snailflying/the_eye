@@ -1,7 +1,9 @@
 package com.theone.eye.user.login
 
-import com.piaoyou.piaoxingqiu.app.entity.api.FloorBean
 import com.themone.core.base.IModel
+import com.theone.eye.base.entity.VerifyCodeReq
+import com.theone.eye.user.register.entity.RegisterReq
+import com.theone.eye.user.register.entity.RegisterRes
 import com.theone.framework.http.ApiResponse
 import io.reactivex.rxjava3.core.Observable
 
@@ -10,13 +12,20 @@ import io.reactivex.rxjava3.core.Observable
  * @Date 2020/11/16
  * @Description
  */
-interface IRegisterModel:IModel {
-
+interface IRegisterModel : IModel {
     /**
-     * 加载数据列表
+     * 获取验证码
      *
      * @param params
      * @return
      */
-    fun getHomeFloor(): Observable<ApiResponse<FloorBean>>
+    fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Boolean>>
+
+    /**
+     * 注册
+     *
+     * @param params
+     * @return
+     */
+    fun register(request: RegisterReq): Observable<ApiResponse<RegisterRes>>
 }

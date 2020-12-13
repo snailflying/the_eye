@@ -1,8 +1,12 @@
 package com.theone.eye.base.net.api
 
+import com.theone.eye.base.entity.VerifyCodeReq
 import com.theone.eye.home.entity.HomeEn
 import com.theone.eye.user.login.entity.LoginReq
 import com.theone.eye.user.login.entity.LoginRes
+import com.theone.eye.user.register.entity.RegisterReq
+import com.theone.eye.user.register.entity.RegisterRes
+import com.theone.eye.user.resetpwd.entity.ResetPwdReq
 import com.theone.framework.http.ApiResponse
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.Body
@@ -24,10 +28,28 @@ interface ApiService {
     fun getMock(): Observable<HomeEn>
 
     /**
-     * Normal
+     * 获取验证码
+     */
+    @POST("pub/get_verify_code")
+    fun getVerifyCode(@Body request: VerifyCodeReq): Observable<ApiResponse<Boolean>>
+
+    /**
+     * 登录
      */
     @POST("pub/login")
-    fun login(@Body loginRes: LoginReq): Observable<ApiResponse<LoginRes>>
+    fun login(@Body request: LoginReq): Observable<ApiResponse<LoginRes>>
+
+    /**
+     * 注册
+     */
+    @POST("pub/register")
+    fun register(@Body request: RegisterReq): Observable<ApiResponse<RegisterRes>>
+
+    /**
+     * 重置密码
+     */
+    @POST("pub/reset_password")
+    fun resetPassword(@Body request: ResetPwdReq): Observable<ApiResponse<Boolean>>
 
     companion object {
 

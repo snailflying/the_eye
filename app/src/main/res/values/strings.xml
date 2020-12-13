@@ -38,5 +38,8 @@
     <string name="lab_service_protocol"><![CDATA[<用户协议>]]></string>
     <string name="lab_logout_confirm">是否确认退出账号？</string>
     <string name="title_jump_login">跳过</string>
+    <string name="count_down_finish">重新获取</string>
+    <string name="regist_error">注册异常，请重试</string>
+    <string name="reset_pwd_error">重置密码错误，请重试</string>
 
 </resources>

@@ -14,6 +14,7 @@ import com.theone.eye.base.user.User
 import com.theone.eye.databinding.FragmentLoginBinding
 import com.theone.framework.base.BaseMvvmFragment
 import com.theone.framework.ext.clickWithTrigger
+import com.theone.framework.ext.getTextString
 import com.theone.framework.router.AppRouteUrl
 import com.theone.framework.router.AppRouter
 
@@ -37,9 +38,9 @@ class LoginFragment : BaseMvvmFragment<LoginViewModel>() {
     }
 
     private fun initViews() {
-        setTitleBar()
-        setEdit()
-        setOnClickListener()
+        initTitleBar()
+        initEdit()
+        initListener()
         initObserver()
     }
 
@@ -50,10 +51,10 @@ class LoginFragment : BaseMvvmFragment<LoginViewModel>() {
         })
     }
 
-    private fun setOnClickListener() {
+    private fun initListener() {
         binding.loginBtn.clickWithTrigger {
-            val phoneNumber: String? = binding.phoneNumberEt.editableText?.toString()?.trim()
-            val password: String? = binding.verifyCodeEt.editableText?.toString()?.trim()
+            val phoneNumber: String? = binding.phoneNumberEt.getTextString()
+            val password: String? = binding.verifyCodeEt.getTextString()
             viewModel.loginByVerifyCode(phoneNumber, password)
         }
         binding.forgetPasswordTv.clickWithTrigger {
@@ -64,7 +65,7 @@ class LoginFragment : BaseMvvmFragment<LoginViewModel>() {
         }
     }
 
-    private fun setTitleBar() {
+    private fun initTitleBar() {
         binding.titleBar.setOnTitleBarListener(object : OnTitleBarListener {
             override fun onLeftClick(v: View) {
                 onBackPressed()
@@ -75,7 +76,7 @@ class LoginFragment : BaseMvvmFragment<LoginViewModel>() {
         })
     }
 
-    private fun setEdit() {
+    private fun initEdit() {
         binding.phoneNumberEt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -95,8 +96,8 @@ class LoginFragment : BaseMvvmFragment<LoginViewModel>() {
     }
 
     private fun verifyPhoneAndCode() {
-        val phoneNumber: String? = binding.phoneNumberEt.editableText?.toString()?.trim()
-        val password: String? = binding.verifyCodeEt.editableText?.toString()?.trim()
+        val phoneNumber: String? = binding.phoneNumberEt.getTextString()
+        val password: String? = binding.verifyCodeEt.getTextString()
         binding.loginBtn.isEnabled = !TextUtils.isEmpty(phoneNumber) && !TextUtils.isEmpty(password)
     }
 

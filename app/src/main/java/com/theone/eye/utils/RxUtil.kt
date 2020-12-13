@@ -13,33 +13,14 @@ import io.reactivex.rxjava3.schedulers.Schedulers
  * @Description Rx相关工具类
  */
 object RxUtil {
-
-    /**
-     * 1.预处理response数据
-     * 处理后的数据： T
-     */
-    @JvmStatic
-    fun <T> responseData(): ObservableTransformer<ApiResponse<T>, T> {
-        return ObservableTransformer { upstream ->
-            upstream.map {
-                if (it.isSuccess) {
-                    it.data
-                } else {
-                    throw NetworkException(it.statusCode, it.message)
-                }
-            }
-        }
-    }
-
     /**
      * 1.预处理response数据
      * 2.线程切换
      * 处理后的数据： T
      */
-    @JvmStatic
-    fun <T> responseDataToMain(): ObservableTransformer<ApiResponse<T>, T> {
+    fun <T> getDataInMainThread(): ObservableTransformer<ApiResponse<T>, T?> {
         return ObservableTransformer { upstream ->
-            upstream.map {
+            upstream.map { it ->
                 if (it.isSuccess) {
                     it.data
                 } else {
@@ -52,14 +33,13 @@ object RxUtil {
 
     /**
      * 1.预处理response数据
-     * 处理后的数据： ApiResponse<T>
+     * 处理后的数据： T
      */
-    @JvmStatic
-    fun <T> response(): ObservableTransformer<ApiResponse<T>, ApiResponse<T>> {
+    fun <T> getData(): ObservableTransformer<ApiResponse<T>, T?> {
         return ObservableTransformer { upstream ->
-            upstream.map {
+            upstream.map { it ->
                 if (it.isSuccess) {
-                    it
+                    it.data
                 } else {
                     throw NetworkException(it.statusCode, it.message)
                 }
@@ -68,27 +48,10 @@ object RxUtil {
     }
 
     /**
-     * 1.预处理response数据
      * 2.线程切换
-     * 处理后的数据： ApiResponse<T>
+     * 处理后的数据： T
      */
-    @JvmStatic
-    fun <T> responseToMain(): ObservableTransformer<ApiResponse<T>, ApiResponse<T>> {
-        return ObservableTransformer { upstream ->
-            upstream.map {
-                if (it.isSuccess) {
-                    it
-                } else {
-                    throw NetworkException(it.statusCode, it.message)
-                }
-            }.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-        }
-    }
-
-    @JvmStatic
-    fun <T> observableToMain(): ObservableTransformer<T, T> {
-
+    fun <T> toMainThread(): ObservableTransformer<T, T> {
         return ObservableTransformer { upstream ->
             upstream.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

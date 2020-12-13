@@ -15,7 +15,7 @@ class LoginViewModel(override var model: ILoginModel = LoginModel()) : BaseViewM
 
     fun loginByVerifyCode(phoneNumber: String?, password: String?) {
         val request = LoginReq().also {
-            it.telphone = phoneNumber
+            it.phoneNumber = phoneNumber
             it.pwd = password
         }
         model.login(request)
