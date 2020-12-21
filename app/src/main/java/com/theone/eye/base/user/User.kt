@@ -30,12 +30,6 @@ class User private constructor() : Serializable {
             field = value
         }
 
-    var userId: String = ""
-        get() = if (field.isNotBlank()) field else Settings.create().userId
-        set(value) {
-            Settings.create().userId = value
-            field = value
-        }
 
     var name: String = ""
         get() = if (field.isNotBlank()) field else Settings.create().name
@@ -52,8 +46,7 @@ class User private constructor() : Serializable {
             this.refreshToken = Settings.create().refreshToken
         if (Settings.create().cellphone.isNotBlank())
             this.cellphone = Settings.create().cellphone
-        if (Settings.create().userId.isNotBlank())
-            this.userId = Settings.create().userId
+
         if (Settings.create().name.isNotBlank())
             this.name = Settings.create().name
     }
@@ -71,11 +64,10 @@ class User private constructor() : Serializable {
     fun login(userLogin: LoginRes) {
 
         //init
-        this.cellphone = userLogin.cellphone ?: ""
+        this.cellphone = userLogin.phoneNumber ?: ""
         this.accessToken = userLogin.token ?: ""
         //fixme: 刷新token暂时没有
         this.refreshToken = userLogin.refreshToken ?: ""
-        this.userId = userLogin.userId ?: ""
         this.name = userLogin.name ?: ""
         currentUser = this@User
     }
@@ -86,7 +78,6 @@ class User private constructor() : Serializable {
     fun logout() {
         accessToken = ""
         refreshToken = ""
-        userId = ""
         cellphone = ""
         name = ""
         currentUser = User()

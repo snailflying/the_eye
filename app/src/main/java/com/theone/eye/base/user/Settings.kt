@@ -30,11 +30,6 @@ class Settings private constructor() {
             prefs.edit().putEncryptString(SP_MOBILE, value).apply()
             field = value
         }
-    var userId = prefs.getEncryptString(SP_USER_ID)
-        set(value) {
-            prefs.edit().putEncryptString(SP_USER_ID, value).apply()
-            field = value
-        }
 
     var name = prefs.getEncryptString(SP_NAME)
         set(value) {
@@ -47,7 +42,6 @@ class Settings private constructor() {
         const val SP_ACCESS_TOKEN = "sp_access_token"
         const val SP_REFRESH_TOKEN = "sp_refresh_token"
         const val SP_MOBILE = "sp_mobile"
-        const val SP_USER_ID = "sp_user_id"
         const val SP_NAME = "sp_name"
 
         @SuppressLint("StaticFieldLeak")
