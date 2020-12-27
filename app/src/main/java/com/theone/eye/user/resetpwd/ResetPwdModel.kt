@@ -18,11 +18,11 @@ import io.reactivex.rxjava3.core.Observable
  * @Description
  */
 class ResetPwdModel : BaseModel<ApiService>(ApiService::class.java), IResetPwdModel {
-    override fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Boolean>> {
+    override fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Any>> {
         return apiService.getVerifyCode(request).compose(RxUtil.toMainThread())
     }
 
-    override fun resetPwd(request: ResetPwdReq): Observable<ApiResponse<Boolean>> {
+    override fun resetPwd(request: ResetPwdReq): Observable<ApiResponse<Any>> {
         return apiService.resetPassword(request).compose(RxUtil.toMainThread())
     }
 

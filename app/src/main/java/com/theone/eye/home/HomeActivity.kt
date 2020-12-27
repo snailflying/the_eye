@@ -1,7 +1,6 @@
 package com.theone.eye.home
 
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -11,8 +10,8 @@ import com.themone.core.base.impl.CoreFragment
 import com.themone.core.util.StatusBarUtil
 import com.theone.eye.R
 import com.theone.eye.databinding.ActivityHomeBinding
+import com.theone.eye.mine.MineFragment
 import com.theone.framework.base.BaseActivity
-import com.theone.framework.ext.getDimension
 import com.theone.framework.widget.smarttablayout.SimpleSmartTabAdapter
 import com.theone.framework.widget.smarttablayout.SmartTabLayout
 
@@ -29,10 +28,12 @@ class HomeActivity : BaseActivity() {
         setBottomBar()
         setStatusBar()
     }
-   private fun setStatusBar() {
+
+    private fun setStatusBar() {
         StatusBarUtil.compat(this, true)
     }
-    private fun setBottomBar(){
+
+    private fun setBottomBar() {
         val tabs = resources.getStringArray(R.array.home_tab)
         val smartTabAdapter = object : SimpleSmartTabAdapter(R.layout.home_tab_smart_tab_text) {
             override fun getCount(): Int {
@@ -56,7 +57,7 @@ class HomeActivity : BaseActivity() {
         binding.smartTabSTL.setTabAdapter(smartTabAdapter)
     }
 
-    private fun initViewPager(){
+    private fun initViewPager() {
         if (viewPagerAdapter == null) {
             viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
             binding.viewpager.adapter = viewPagerAdapter
@@ -64,11 +65,12 @@ class HomeActivity : BaseActivity() {
             binding.viewpager.setCurrentItem(TAB_HOME, false)
         }
     }
+
     internal class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 TAB_TICKET -> HomeFragment.instance
-                TAB_MINE -> HomeFragment.instance
+                TAB_MINE -> MineFragment.instance
                 TAB_HOME -> HomeFragment.instance
                 TAB_SHOW -> HomeFragment.instance
                 else -> HomeFragment.instance
@@ -96,6 +98,7 @@ class HomeActivity : BaseActivity() {
             return position.toString() + ""
         }
     }
+
     companion object {
         private val TAG: String? = "MainActivity"
         private const val TAB_HOME = 0

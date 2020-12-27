@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/ScrollViewStyle">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="20dp">
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/leftGuide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/dimension_margin_horizon" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/rightGuide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/dimension_margin_horizon" />
+
+        <ImageView
+                android:id="@+id/avatarIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/default_avatar"
+                app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/loginTv"
+                style="@style/Mine.Title"
+                android:layout_width="0dp"
+                android:paddingHorizontal="@dimen/MiddlePadding10"
+                android:text="@string/text_login"
+                app:layout_constraintBottom_toBottomOf="@id/avatarIv"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintLeft_toRightOf="@id/avatarIv"
+                app:layout_constraintRight_toRightOf="@id/rightGuide"
+                app:layout_constraintTop_toTopOf="@id/avatarIv" />
+
+        <ImageView
+                android:id="@+id/lineIv"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/BiggestPadding20"
+                android:background="@color/line_color"
+                app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+                app:layout_constraintRight_toRightOf="@id/rightGuide"
+                app:layout_constraintTop_toBottomOf="@id/avatarIv" />
+
+        <TextView
+                style="@style/Mine.Title"
+                android:layout_marginTop="@dimen/MiddlePadding10"
+                android:id="@+id/logoutTv"
+                android:drawableEnd="@drawable/ic_next"
+                android:drawableRight="@drawable/ic_next"
+                android:text="@string/text_logout"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+                app:layout_constraintRight_toRightOf="@id/rightGuide"
+                app:layout_constraintTop_toBottomOf="@id/lineIv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

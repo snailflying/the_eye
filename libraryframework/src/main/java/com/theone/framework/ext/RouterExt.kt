@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.theone.framework.R
-import com.theone.framework.base.BaseActivity
 
 /**
  * @author Zhiqiang

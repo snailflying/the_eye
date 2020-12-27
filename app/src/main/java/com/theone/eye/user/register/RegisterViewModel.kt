@@ -7,7 +7,6 @@ import com.theone.eye.user.register.entity.RegisterReq
 import com.theone.eye.user.register.entity.RegisterRes
 import com.theone.framework.base.BaseViewModel
 import com.theone.framework.ext.getString
-import java.util.concurrent.CopyOnWriteArrayList
 
 /**
  * @Author zhiqiang
@@ -20,9 +19,9 @@ class RegisterViewModel(override var model: IRegisterModel = RegisterModel()) : 
 
     fun getVerifyCode(verifyCodeReq: VerifyCodeReq) {
         model.getVerifyCode(verifyCodeReq)
-            .subscribe(object : BaseObserver<Boolean>() {
-                override fun onResultSuccess(data: Boolean?) {
-                    verifyLive.value = data ?: false
+            .subscribe(object : BaseObserver<Any>() {
+                override fun onResultSuccess(data: Any?) {
+                    verifyLive.value = true
                 }
 
                 override fun onResultFailed(statusCode: Int, comments: String?) {

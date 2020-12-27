@@ -1,5 +1,6 @@
 package com.theone.eye.user.login.entity
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 class LoginRes : Serializable {
@@ -8,6 +9,8 @@ class LoginRes : Serializable {
 
     var name: String? = null
     var phoneNumber: String? = null
-    var email: String? = null
+    var sex: String? = null
+    @SerializedName("imgpath")
+    var imgPath: String? = null
 
 }

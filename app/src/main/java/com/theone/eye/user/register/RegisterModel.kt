@@ -19,7 +19,7 @@ import io.reactivex.rxjava3.core.Observable
  * @Description
  */
 class RegisterModel : BaseModel<ApiService>(ApiService::class.java), IRegisterModel {
-    override fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Boolean>> {
+    override fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Any>> {
         return apiService.getVerifyCode(request).compose(RxUtil.toMainThread())
     }
 

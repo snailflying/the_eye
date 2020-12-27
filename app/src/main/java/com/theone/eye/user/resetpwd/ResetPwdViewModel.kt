@@ -20,9 +20,9 @@ class ResetPwdViewModel(override var model: IResetPwdModel = ResetPwdModel()) : 
 
     fun getVerifyCode(verifyCodeReq: VerifyCodeReq) {
         model.getVerifyCode(verifyCodeReq)
-            .subscribe(object : BaseObserver<Boolean>() {
-                override fun onResultSuccess(data: Boolean?) {
-                    verifyLive.value = data ?: false
+            .subscribe(object : BaseObserver<Any>() {
+                override fun onResultSuccess(data: Any?) {
+                    verifyLive.value = true
                 }
 
                 override fun onResultFailed(statusCode: Int, comments: String?) {
@@ -39,17 +39,10 @@ class ResetPwdViewModel(override var model: IResetPwdModel = ResetPwdModel()) : 
 
     fun resetPassword(resetPwdReq: ResetPwdReq) {
         model.resetPwd(resetPwdReq)
-            .subscribe(object : BaseObserver<Boolean>() {
-                override fun onResultSuccess(data: Boolean?) {
-                    if (data == true) {
-                        resetPwdLive.value = ResetPwdRes().also {
-                            it.result = data
-                        }
-                    } else {
-                        resetPwdLive.value = ResetPwdRes().also {
-                            it.result = false
-                            it.errorMsg = getString(R.string.reset_pwd_error)
-                        }
+            .subscribe(object : BaseObserver<Any>() {
+                override fun onResultSuccess(data: Any?) {
+                    resetPwdLive.value = ResetPwdRes().also {
+                        it.result = true
                     }
 
                 }

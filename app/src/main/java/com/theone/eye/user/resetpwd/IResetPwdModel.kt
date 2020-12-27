@@ -22,7 +22,7 @@ interface IResetPwdModel:IModel {
      * @param params
      * @return
      */
-    fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Boolean>>
+    fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Any>>
 
     /**
      * 重置密码
@@ -30,5 +30,5 @@ interface IResetPwdModel:IModel {
      * @param params
      * @return
      */
-    fun resetPwd(request: ResetPwdReq): Observable<ApiResponse<Boolean>>
+    fun resetPwd(request: ResetPwdReq): Observable<ApiResponse<Any>>
 }

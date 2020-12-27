@@ -17,7 +17,7 @@ class LoginModel : BaseModel<ApiService>(ApiService::class.java), ILoginModel {
 
 
     override fun login(loginRes: LoginReq): Observable<ApiResponse<LoginRes>> {
-        return apiService.login(loginRes).compose(RxUtil.observableToMain())
+        return apiService.login(loginRes).compose(RxUtil.toMainThread())
     }
 
 }

@@ -2,6 +2,7 @@ package com.theone.framework.http
 
 import com.themone.core.util.LogUtil
 import com.theone.framework.base.BaseApp
+import com.theone.framework.http.interceptor.TrueHostVerifier
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -37,6 +38,7 @@ open class DefaultEnvironment : IAppEnvironment {
                 .writeTimeout(DEFAULT_TIME_OUT.toLong(), TimeUnit.SECONDS)
                 .readTimeout(DEFAULT_READ_TIME_OUT.toLong(), TimeUnit.SECONDS)
                 .cache(cache)
+//                .hostnameVerifier(TrueHostVerifier())
 
             for (interceptor in interceptors) {
                 builder.addInterceptor(interceptor)

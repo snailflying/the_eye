@@ -107,8 +107,8 @@ class LoginFragment : BaseMvvmFragment<LoginViewModel>() {
 
     companion object {
 
-        fun getInstance(): RegisterFragment {
-            return RegisterFragment()
+        fun getInstance(): LoginFragment {
+            return LoginFragment()
         }
     }
 

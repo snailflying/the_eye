@@ -7,7 +7,7 @@ import com.theone.eye.R
 import com.theone.framework.base.BaseActivity
 import com.theone.framework.router.AppRouteUrl
 
-@Route(value = [AppRouteUrl.ROUTE_WEB_URL])
+@Route(value = [AppRouteUrl.LOGIN_URL])
 class LoginActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -70,7 +70,7 @@ class ResetPwdFragment : BaseMvvmFragment<ResetPwdViewModel>() {
             viewModel.resetPassword(ResetPwdReq().apply {
                 phoneNumber = binding.phoneNumberEt.getTextString()
                 smsVerifyCode = binding.verifyCodeEt.getTextString()
-                pwd = binding.passwordEt.getTextString()
+                newPwd = binding.passwordEt.getTextString()
             })
 
         }
@@ -117,8 +117,8 @@ class ResetPwdFragment : BaseMvvmFragment<ResetPwdViewModel>() {
 
     companion object {
 
-        fun getInstance(): RegisterFragment {
-            return RegisterFragment()
+        fun getInstance(): ResetPwdFragment {
+            return ResetPwdFragment()
         }
     }
 
