@@ -19,12 +19,12 @@ import io.reactivex.rxjava3.core.Observable
  * @Description
  */
 class RegisterModel : BaseModel<ApiService>(ApiService::class.java), IRegisterModel {
-    override fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Any>> {
+    override fun getVerifyCode(request: String): Observable<ApiResponse<Any>> {
         return apiService.getVerifyCode(request).compose(RxUtil.toMainThread())
     }
 
     override fun register(request: RegisterReq): Observable<ApiResponse<RegisterRes>> {
-        return apiService.register(request).compose(RxUtil.toMainThread())
+        return apiService.register(request.smsVerifyCode,request.phoneNumber,request.pwd,request.nickName).compose(RxUtil.toMainThread())
     }
 
 

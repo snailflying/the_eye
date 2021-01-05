@@ -67,4 +67,5 @@ object Constant {
      */
     const val PAGE_MARGIN_VERTICAL_4 = 12
     const val PAGE_MARGIN_VERTICAL_5 = 8
+
 }

@@ -24,7 +24,7 @@
     <style name="Mine.Title">
         <item name="android:layout_width">0dp</item>
         <item name="android:textColor">@color/text_color_title</item>
-        <item name="android:textSize">32sp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="Mine.Content">

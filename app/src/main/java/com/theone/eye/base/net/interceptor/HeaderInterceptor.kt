@@ -1,13 +1,16 @@
 package com.theone.eye.base.net.interceptor
 
 import com.shownow.shownow.base.constant.Constant
-import com.theone.framework.util.I18NUtil
+import com.shownow.shownow.base.constant.NetConstant
 import com.theone.eye.base.user.User
+import com.theone.framework.base.BaseApp
+import com.theone.framework.util.I18NUtil
+import com.theone.framework.util.SpUtil
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
-
 import java.io.IOException
+
 
 /**
  * @Author zhiqiang
@@ -44,10 +47,17 @@ class HeaderInterceptor : Interceptor {
         builder.header(Constant.ACCESS_TOKEN, User.currentUser.accessToken)
             .header(Constant.HEAD_LANGUAGE, I18NUtil.getSelectedLanguage())
             .header(Constant.HEAD_CURRENCY, I18NUtil.getSelectedCurrency())
+
+        //添加登录cookie
+        val cookieSet =
+            SpUtil.getSp(BaseApp.application).getStringSet(NetConstant.LOGIN_COOKIE, setOf()) as HashSet<String>
+        for (cookie in cookieSet) {
+            builder.addHeader("Cookie", cookie)
+        }
+
     }
 
     private fun initCommonHeader() {
-        headersMap["Content-Type"] = "application/json"
         headersMap[Constant.HEAD_PRODUCT] = Constant.HEAD_PRODUCT_VALUE
     }
 

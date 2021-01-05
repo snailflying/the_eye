@@ -3,6 +3,7 @@ package com.theone.eye
 import com.themone.core.util.LogUtil
 import com.theone.framework.http.DefaultEnvironment
 import com.theone.eye.base.net.api.ApiService
+import com.theone.eye.base.net.interceptor.CookieSaveInterceptor
 import com.theone.eye.base.net.interceptor.HeaderInterceptor
 import com.theone.eye.base.net.interceptor.MoreBaseUrlInterceptor
 import okhttp3.Interceptor
@@ -38,9 +39,11 @@ class AppEnvironment : DefaultEnvironment() {
         get() {
             val interceptors = super.interceptors
             val headerInterceptor = HeaderInterceptor()
+            val cookieSaveInterceptor = CookieSaveInterceptor()
 
             val moreBaseUrlInterceptor = MoreBaseUrlInterceptor()
             interceptors.add(headerInterceptor)
+            interceptors.add(cookieSaveInterceptor)
             interceptors.add(moreBaseUrlInterceptor)
             if (LogUtil.isDebug) {
                 val logging = HttpLoggingInterceptor()

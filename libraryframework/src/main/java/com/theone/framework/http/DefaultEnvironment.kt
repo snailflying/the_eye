@@ -38,7 +38,7 @@ open class DefaultEnvironment : IAppEnvironment {
                 .writeTimeout(DEFAULT_TIME_OUT.toLong(), TimeUnit.SECONDS)
                 .readTimeout(DEFAULT_READ_TIME_OUT.toLong(), TimeUnit.SECONDS)
                 .cache(cache)
-//                .hostnameVerifier(TrueHostVerifier())
+                .hostnameVerifier(TrueHostVerifier())
 
             for (interceptor in interceptors) {
                 builder.addInterceptor(interceptor)

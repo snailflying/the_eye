@@ -18,7 +18,7 @@ class ResetPwdViewModel(override var model: IResetPwdModel = ResetPwdModel()) : 
     val resetPwdLive: MutableLiveData<ResetPwdRes> = MutableLiveData()
 
 
-    fun getVerifyCode(verifyCodeReq: VerifyCodeReq) {
+    fun getVerifyCode(verifyCodeReq: String) {
         model.getVerifyCode(verifyCodeReq)
             .subscribe(object : BaseObserver<Any>() {
                 override fun onResultSuccess(data: Any?) {

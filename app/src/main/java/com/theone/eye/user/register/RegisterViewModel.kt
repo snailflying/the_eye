@@ -17,7 +17,7 @@ class RegisterViewModel(override var model: IRegisterModel = RegisterModel()) : 
     val verifyLive: MutableLiveData<Boolean> = MutableLiveData()
     val registerLive: MutableLiveData<RegisterRes> = MutableLiveData()
 
-    fun getVerifyCode(verifyCodeReq: VerifyCodeReq) {
+    fun getVerifyCode(verifyCodeReq: String) {
         model.getVerifyCode(verifyCodeReq)
             .subscribe(object : BaseObserver<Any>() {
                 override fun onResultSuccess(data: Any?) {

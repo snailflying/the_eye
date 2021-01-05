@@ -1,1 +1,1 @@
-com.theone.framework.http.IAppEnvironment:com.theone.mvvm.AppEnvironment
+com.theone.framework.http.IAppEnvironment:com.theone.eye.AppEnvironment

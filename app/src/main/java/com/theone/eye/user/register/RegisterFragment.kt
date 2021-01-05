@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.hjq.bar.OnTitleBarListener
-import com.theone.eye.base.entity.VerifyCodeReq
-import com.theone.eye.base.entity.VerifyCodeType
 import com.theone.eye.databinding.FragmentRegisterBinding
 import com.theone.eye.user.register.entity.RegisterReq
 import com.theone.eye.utils.CountDownButtonHelper
@@ -48,10 +46,10 @@ class RegisterFragment : BaseMvvmFragment<RegisterViewModel>() {
     }
 
     private fun initObserver() {
-        viewModel.registerLive.observe(viewLifecycleOwner,{registerRes->
-            if (!registerRes.errorMsg.isNullOrEmpty()){
+        viewModel.registerLive.observe(viewLifecycleOwner, { registerRes ->
+            if (!registerRes.errorMsg.isNullOrEmpty()) {
                 ToastUtil.show(registerRes.errorMsg)
-            } else{
+            } else {
                 AppRouter.build(AppRouteUrl.LOGIN_URL).go(mContext)
             }
         })
@@ -74,10 +72,7 @@ class RegisterFragment : BaseMvvmFragment<RegisterViewModel>() {
         }
         binding.getVerifyCodeTv.clickWithTrigger {
             mCountDownHelper?.start()
-            viewModel.getVerifyCode(VerifyCodeReq().apply {
-                fieldType = VerifyCodeType.REGISTER
-                phoneNumber = binding.phoneNumberEt.getTextString()
-            })
+            viewModel.getVerifyCode(binding.phoneNumberEt.getTextString() ?: "")
         }
         binding.registerBtn.clickWithTrigger {
             val registerReq = RegisterReq().apply {

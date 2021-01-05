@@ -19,7 +19,7 @@ interface IRegisterModel : IModel {
      * @param params
      * @return
      */
-    fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Any>>
+    fun getVerifyCode(request: String): Observable<ApiResponse<Any>>
 
     /**
      * 注册

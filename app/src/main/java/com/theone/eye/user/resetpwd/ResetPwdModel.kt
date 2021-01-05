@@ -1,11 +1,6 @@
 package com.theone.eye.user.login
 
-import com.piaoyou.piaoxingqiu.app.entity.api.FloorBean
-import com.piaoyou.piaoxingqiu.app.entity.api.FloorItem
-import com.piaoyou.piaoxingqiu.app.entity.api.FloorRoom
-import com.theone.eye.base.entity.VerifyCodeReq
 import com.theone.eye.base.net.api.ApiService
-import com.theone.eye.home.entity.FloorTypeConstants
 import com.theone.eye.user.resetpwd.entity.ResetPwdReq
 import com.theone.eye.utils.RxUtil
 import com.theone.framework.base.BaseModel
@@ -18,12 +13,13 @@ import io.reactivex.rxjava3.core.Observable
  * @Description
  */
 class ResetPwdModel : BaseModel<ApiService>(ApiService::class.java), IResetPwdModel {
-    override fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Any>> {
+    override fun getVerifyCode(request: String): Observable<ApiResponse<Any>> {
         return apiService.getVerifyCode(request).compose(RxUtil.toMainThread())
     }
 
     override fun resetPwd(request: ResetPwdReq): Observable<ApiResponse<Any>> {
-        return apiService.resetPassword(request).compose(RxUtil.toMainThread())
+        return apiService.resetPassword(request.smsVerifyCode, request.phoneNumber, request.newPwd)
+            .compose(RxUtil.toMainThread())
     }
 
 

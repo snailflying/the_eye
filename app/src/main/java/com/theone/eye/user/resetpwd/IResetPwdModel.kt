@@ -22,7 +22,7 @@ interface IResetPwdModel:IModel {
      * @param params
      * @return
      */
-    fun getVerifyCode(request: VerifyCodeReq): Observable<ApiResponse<Any>>
+    fun getVerifyCode(request: String): Observable<ApiResponse<Any>>
 
     /**
      * 重置密码

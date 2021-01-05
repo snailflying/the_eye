@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.hjq.bar.OnTitleBarListener
-import com.theone.eye.base.entity.VerifyCodeReq
-import com.theone.eye.base.entity.VerifyCodeType
 import com.theone.eye.databinding.FragmentResetPasswordBinding
 import com.theone.eye.user.resetpwd.entity.ResetPwdReq
 import com.theone.eye.utils.CountDownButtonHelper
@@ -61,10 +59,7 @@ class ResetPwdFragment : BaseMvvmFragment<ResetPwdViewModel>() {
     private fun initListener() {
         binding.getVerifyCodeBtn.clickWithTrigger {
             mCountDownHelper?.start()
-            viewModel.getVerifyCode(VerifyCodeReq().apply {
-                phoneNumber = binding.phoneNumberEt.getTextString()
-                fieldType = VerifyCodeType.RESET_PWD
-            })
+            viewModel.getVerifyCode(binding.phoneNumberEt.getTextString() ?: "")
         }
         binding.resetPasswordBtn.clickWithTrigger {
             viewModel.resetPassword(ResetPwdReq().apply {
