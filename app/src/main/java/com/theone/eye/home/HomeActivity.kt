@@ -1,6 +1,7 @@
 package com.theone.eye.home
 
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import com.themone.core.base.impl.CoreFragment
 import com.themone.core.util.StatusBarUtil
 import com.theone.eye.R
 import com.theone.eye.databinding.ActivityHomeBinding
+import com.theone.eye.home.adapter.BottomSmartTabAdapter
 import com.theone.eye.mine.MineFragment
 import com.theone.framework.base.BaseActivity
 import com.theone.framework.widget.smarttablayout.SimpleSmartTabAdapter
@@ -35,26 +37,16 @@ class HomeActivity : BaseActivity() {
 
     private fun setBottomBar() {
         val tabs = resources.getStringArray(R.array.home_tab)
-        val smartTabAdapter = object : SimpleSmartTabAdapter(R.layout.home_tab_smart_tab_text) {
-            override fun getCount(): Int {
-                return tabs.size
-            }
 
-            override fun getTabTitle(position: Int): String? {
-                return tabs[position]
-            }
+        val smartTabAdapter = BottomSmartTabAdapter(R.layout.item_bottombar_text_layout, View.NO_ID)
+        smartTabAdapter.setData(tabs.toList())
 
-            override fun onBindViewHolderExt(textView: TextView, isSelect: Boolean) {
-//                textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, if (isSelect) getDimension(R.dimen.font_text_0) else getDimension(R.dimen.font_text_1))
-                textView.paint.isFakeBoldText = isSelect
-            }
-        }
         binding.smartTabSTL.setOnTabClickListener(object : SmartTabLayout.OnTabClickListener {
             override fun onTabClicked(position: Int) {
                 binding.viewpager.setCurrentItem(position, true)
             }
         })
-        binding.smartTabSTL.setTabAdapter(smartTabAdapter)
+        binding.smartTabSTL.setTabAdapter(smartTabAdapter,true)
     }
 
     private fun initViewPager() {

@@ -49,7 +49,7 @@ class HeaderInterceptor : Interceptor {
 
         //添加登录cookie
         val cookieSet =
-            SpUtil.getSp(BaseApp.application).getStringSet(SpUtil.SP_LOGIN_COOKIE, setOf()) as HashSet<String>
+            SpUtil.getSp(BaseApp.application).getStringSet(SpUtil.SP_LOGIN_COOKIE, hashSetOf()) as HashSet<String>
         for (cookie in cookieSet) {
             builder.addHeader("Cookie", cookie)
         }
