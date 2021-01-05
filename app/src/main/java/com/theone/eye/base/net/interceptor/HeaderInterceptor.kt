@@ -1,7 +1,6 @@
 package com.theone.eye.base.net.interceptor
 
 import com.shownow.shownow.base.constant.Constant
-import com.shownow.shownow.base.constant.NetConstant
 import com.theone.eye.base.user.User
 import com.theone.framework.base.BaseApp
 import com.theone.framework.util.I18NUtil
@@ -50,7 +49,7 @@ class HeaderInterceptor : Interceptor {
 
         //添加登录cookie
         val cookieSet =
-            SpUtil.getSp(BaseApp.application).getStringSet(NetConstant.LOGIN_COOKIE, setOf()) as HashSet<String>
+            SpUtil.getSp(BaseApp.application).getStringSet(SpUtil.SP_LOGIN_COOKIE, setOf()) as HashSet<String>
         for (cookie in cookieSet) {
             builder.addHeader("Cookie", cookie)
         }

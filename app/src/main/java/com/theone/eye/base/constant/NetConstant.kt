@@ -6,7 +6,6 @@ package com.shownow.shownow.base.constant
  * @Description
  */
 object NetConstant {
-    const val LOGIN_COOKIE: String = "login_cookie"
 
     /**
      * 账户 登录 access_token，用作登录

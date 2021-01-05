@@ -1,6 +1,5 @@
 package com.theone.eye.base.net.interceptor
 
-import com.shownow.shownow.base.constant.NetConstant
 import com.theone.eye.base.net.api.ApiService
 import com.theone.framework.base.BaseApp
 import com.theone.framework.util.SpUtil
@@ -22,7 +21,7 @@ class CookieSaveInterceptor : Interceptor {
         val originalResponse: Response = chain.proceed(request)
         if (isLoginRequestSuccess(request, originalResponse) && originalResponse.headers(COOKIE_KEY).isNotEmpty()) {
             val cookies = HashSet(originalResponse.headers(COOKIE_KEY))
-            SpUtil.getSp(BaseApp.application).edit().putStringSet(NetConstant.LOGIN_COOKIE, cookies).apply()
+            SpUtil.getSp(BaseApp.application).edit().putStringSet(SpUtil.SP_LOGIN_COOKIE, cookies).apply()
         }
         return originalResponse
     }
