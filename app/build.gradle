@@ -43,11 +43,15 @@ android {
             versionNameSuffix ".qa"
             resValue "string", "app_name", "EYE-QA"
             buildConfigField 'String', 'PRODUCT_FLAVORS', '"qa"'
+            // App and library's flavor have the same name.
+            matchingFallbacks = ["qa"]
         }
         online {
             dimension "eye"
             resValue "string", "app_name", "EYE"
             buildConfigField 'String', 'PRODUCT_FLAVORS', '"online"'
+            // App and library's flavor have the same name.
+            matchingFallbacks = ["online"]
         }
     }
 
