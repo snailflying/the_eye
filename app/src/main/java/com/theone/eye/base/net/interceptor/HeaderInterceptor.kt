@@ -48,8 +48,7 @@ class HeaderInterceptor : Interceptor {
             .header(Constant.HEAD_CURRENCY, I18NUtil.getSelectedCurrency())
 
         //添加登录cookie
-        val cookieSet =
-            SpUtil.getSp(BaseApp.application).getStringSet(SpUtil.SP_LOGIN_COOKIE, hashSetOf()) as HashSet<String>
+        val cookieSet =User.currentUser.accessCookie
         for (cookie in cookieSet) {
             builder.addHeader("Cookie", cookie)
         }

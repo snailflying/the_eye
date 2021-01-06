@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import cn.magicwindow.core.ext.finishWithAnim
 import com.hjq.bar.OnTitleBarListener
+import com.theone.eye.R
 import com.theone.eye.base.user.User
 import com.theone.eye.databinding.FragmentLoginBinding
 import com.theone.framework.base.BaseMvvmFragment
@@ -17,6 +18,7 @@ import com.theone.framework.ext.clickWithTrigger
 import com.theone.framework.ext.getTextString
 import com.theone.framework.router.AppRouteUrl
 import com.theone.framework.router.AppRouter
+import com.theone.framework.widget.toast.ToastUtil
 
 /**
  * @Author ZhiQiang
@@ -46,8 +48,13 @@ class LoginFragment : BaseMvvmFragment<LoginViewModel>() {
 
     private fun initObserver() {
         viewModel.loginLive.observe(viewLifecycleOwner, {
-            User.currentUser.login(it)
-            activity?.finishWithAnim()
+            if (it!=null){
+                User.currentUser.login(it)
+                activity?.finishWithAnim()
+            } else{
+                ToastUtil.show(getString(R.string.login_error))
+            }
+
         })
     }
 

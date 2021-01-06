@@ -2,8 +2,7 @@ package com.theone.eye.base.user
 
 import android.annotation.SuppressLint
 import com.theone.framework.base.BaseApp
-import com.theone.framework.ext.getEncryptString
-import com.theone.framework.ext.putEncryptString
+import com.theone.framework.ext.*
 import com.theone.framework.util.SpUtil
 
 /**
@@ -20,9 +19,19 @@ class Settings private constructor() {
             prefs.edit().putEncryptString(SP_ACCESS_TOKEN, value).apply()
             field = value
         }
-    var refreshToken = prefs.getEncryptString(SP_REFRESH_TOKEN)
+    var accessCookie = prefs.getStringSet(SP_ACCESS_COOKIE, emptySet())!!
         set(value) {
-            prefs.edit().putEncryptString(SP_REFRESH_TOKEN, value).apply()
+            prefs.edit().putStringSet(SP_ACCESS_COOKIE, value).apply()
+            field = value
+        }
+    var sex = prefs.getEncryptInt(SP_SEX, DEFAULT_SEX)
+        set(value) {
+            prefs.edit().putEncryptInt(SP_SEX, value).apply()
+            field = value
+        }
+    var avatarUrl = prefs.getEncryptString(SP_AVATAR_URL)
+        set(value) {
+            prefs.edit().putEncryptString(SP_AVATAR_URL, value).apply()
             field = value
         }
     var cellphone = prefs.getEncryptString(SP_MOBILE)
@@ -40,9 +49,12 @@ class Settings private constructor() {
     companion object {
 
         const val SP_ACCESS_TOKEN = "sp_access_token"
-        const val SP_REFRESH_TOKEN = "sp_refresh_token"
+        const val SP_ACCESS_COOKIE = "sp_access_cookie"
+        const val SP_SEX = "sp_sex"
+        const val SP_AVATAR_URL = "sp_avatar_url"
         const val SP_MOBILE = "sp_mobile"
         const val SP_NAME = "sp_name"
+        const val DEFAULT_SEX = -1
 
         @SuppressLint("StaticFieldLeak")
         @Volatile

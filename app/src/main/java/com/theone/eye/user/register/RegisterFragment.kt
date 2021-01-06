@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
+import cn.magicwindow.core.ext.finishWithAnim
 import com.hjq.bar.OnTitleBarListener
 import com.theone.eye.databinding.FragmentRegisterBinding
 import com.theone.eye.user.register.entity.RegisterReq
@@ -51,6 +52,7 @@ class RegisterFragment : BaseMvvmFragment<RegisterViewModel>() {
                 ToastUtil.show(registerRes.errorMsg)
             } else {
                 AppRouter.build(AppRouteUrl.LOGIN_URL).go(mContext)
+                activity?.finishWithAnim()
             }
         })
     }

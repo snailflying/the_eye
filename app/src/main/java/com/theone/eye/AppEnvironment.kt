@@ -45,12 +45,6 @@ class AppEnvironment : DefaultEnvironment() {
             interceptors.add(headerInterceptor)
             interceptors.add(cookieSaveInterceptor)
             interceptors.add(moreBaseUrlInterceptor)
-            if (LogUtil.isDebug) {
-                val logging = HttpLoggingInterceptor()
-                logging.level = HttpLoggingInterceptor.Level.BODY
-                interceptors.add(logging)
-            }
-
             return interceptors
         }
 

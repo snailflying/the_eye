@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.theone.eye.R
+import com.theone.eye.base.user.User
 import com.theone.eye.databinding.FragmentMineBinding
 import com.theone.eye.home.vm.MineViewModel
 import com.theone.framework.base.BaseMvvmFragment
@@ -29,9 +31,26 @@ class MineFragment : BaseMvvmFragment<MineViewModel>() {
         initView()
     }
 
+    override fun onFragmentResume() {
+        super.onFragmentResume()
+        refreshUi()
+    }
+
+    private fun refreshUi() {
+        if (User.currentUser.isLogin()) {
+            binding.loginTv.text = User.currentUser.name
+        } else {
+            binding.loginTv.text = getString(R.string.text_login)
+            binding.loginTv.clickWithTrigger {
+                AppRouter.build(AppRouteUrl.LOGIN_URL).go(mContext)
+            }
+        }
+    }
+
     private fun initView() {
-        binding.loginTv.clickWithTrigger {
-            AppRouter.build(AppRouteUrl.LOGIN_URL).go(mContext)
+        binding.logoutTv.clickWithTrigger {
+            User.currentUser.logout()
+            refreshUi()
         }
     }
 

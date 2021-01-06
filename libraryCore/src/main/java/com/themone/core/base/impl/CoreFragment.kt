@@ -119,15 +119,15 @@ open class CoreFragment : Fragment() {
 
     }
 
-    fun onFragmentFirstVisible() {
+    open fun onFragmentFirstVisible() {
         LogUtil.i(TAG, this.javaClass.simpleName + "  对用户第一次可见")
     }
 
-    fun onFragmentResume() {
+    open fun onFragmentResume() {
         LogUtil.i(TAG, this.javaClass.simpleName + "  对用户可见")
     }
 
-    fun onFragmentPause() {
+    open fun onFragmentPause() {
         LogUtil.i(TAG, this.javaClass.simpleName + "  对用户不可见")
     }
 

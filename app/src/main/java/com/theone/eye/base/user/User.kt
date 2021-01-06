@@ -17,10 +17,22 @@ class User private constructor() : Serializable {
             Settings.create().accessToken = value
             field = value
         }
-    var refreshToken: String = ""
-        get() = if (field.isNotBlank()) field else Settings.create().refreshToken
+    var accessCookie: Set<String> = emptySet()
+        get() = if (field.isNotEmpty()) field else Settings.create().accessCookie
         set(value) {
-            Settings.create().refreshToken = value
+            Settings.create().accessCookie = value
+            field = value
+        }
+    var sex: Int = Settings.DEFAULT_SEX
+        get() = if (field != Settings.DEFAULT_SEX) field else Settings.create().sex
+        set(value) {
+            Settings.create().sex = value
+            field = value
+        }
+    var avatarUrl: String = ""
+        get() = if (field.isNotBlank()) field else Settings.create().avatarUrl
+        set(value) {
+            Settings.create().avatarUrl = value
             field = value
         }
     var cellphone: String = ""
@@ -42,8 +54,15 @@ class User private constructor() : Serializable {
     init {
         if (Settings.create().accessToken.isNotBlank())
             this.accessToken = Settings.create().accessToken
-        if (Settings.create().refreshToken.isNotBlank())
-            this.refreshToken = Settings.create().refreshToken
+
+        if (!Settings.create().accessCookie.isNullOrEmpty())
+            this.accessCookie = Settings.create().accessCookie
+
+        if (Settings.create().sex != Settings.DEFAULT_SEX)
+            this.sex = Settings.create().sex
+        if (Settings.create().avatarUrl.isNotBlank())
+            this.avatarUrl = Settings.create().avatarUrl
+
         if (Settings.create().cellphone.isNotBlank())
             this.cellphone = Settings.create().cellphone
 
@@ -55,20 +74,17 @@ class User private constructor() : Serializable {
      * 是否登录
      * @return Boolean
      */
-    fun isLogin(): Boolean = accessToken.isNotBlank()
+    fun isLogin(): Boolean = accessCookie.isNotEmpty()
 
     /**
      * 登录
      * @param userLogin LoginEn
      */
     fun login(userLogin: LoginRes) {
-
         //init
-        this.cellphone = userLogin.phoneNumber ?: ""
-        this.accessToken = userLogin.token ?: ""
-        //fixme: 刷新token暂时没有
-        this.refreshToken = userLogin.refreshToken ?: ""
         this.name = userLogin.name ?: ""
+        this.avatarUrl = userLogin.imgPath ?: ""
+        this.sex = userLogin.sex ?: Settings.DEFAULT_SEX
         currentUser = this@User
     }
 
@@ -77,13 +93,15 @@ class User private constructor() : Serializable {
      */
     fun logout() {
         accessToken = ""
-        refreshToken = ""
+        accessCookie = emptySet()
+        sex = Settings.DEFAULT_SEX
         cellphone = ""
+        avatarUrl = ""
         name = ""
         currentUser = User()
 
         //退出登录时删除网络缓存
-        HttpClient.okHttpClient.cache?.delete()
+        HttpClient.okHttpClient.cache?.evictAll()
     }
 
     /**

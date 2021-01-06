@@ -11,7 +11,7 @@ import com.theone.framework.base.BaseViewModel
  * @Description
  */
 class LoginViewModel(override var model: ILoginModel = LoginModel()) : BaseViewModel<ILoginModel>() {
-    val loginLive: MutableLiveData<LoginRes> = MutableLiveData()
+    val loginLive: MutableLiveData<LoginRes?> = MutableLiveData()
 
     fun loginByVerifyCode(phoneNumber: String?, password: String?) {
         val request = LoginReq().also {
@@ -21,16 +21,15 @@ class LoginViewModel(override var model: ILoginModel = LoginModel()) : BaseViewM
         model.login(request)
             .subscribe(object : BaseObserver<LoginRes>() {
                 override fun onResultSuccess(data: LoginRes?) {
-                    if (data == null) return
                     loginLive.value = data
                 }
 
                 override fun onResultFailed(statusCode: Int, comments: String?) {
-                    TODO("Not yet implemented")
+                    loginLive.value = null
                 }
 
                 override fun onError(e: Throwable?) {
-                    TODO("Not yet implemented")
+                    loginLive.value = null
                 }
 
             })

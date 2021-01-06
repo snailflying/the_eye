@@ -52,6 +52,7 @@ class ResetPwdFragment : BaseMvvmFragment<ResetPwdViewModel>() {
                 ToastUtil.show(registerRes.errorMsg)
             } else {
                 AppRouter.build(AppRouteUrl.LOGIN_URL).go(mContext)
+                activity?.finish()
             }
         })
     }
