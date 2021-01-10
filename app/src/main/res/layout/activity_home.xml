@@ -17,7 +17,6 @@
             android:id="@+id/smartTabSTL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:clipToPadding="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:stl_customTabTextViewId="@+id/custom_text"
@@ -29,5 +28,5 @@
             app:stl_indicatorInterpolation="linear"
             app:stl_indicatorThickness="2dp"
             app:stl_indicatorWidth="17dp"
-            app:stl_underlineThickness="0dp" />
+            app:stl_underlineThickness="2dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
