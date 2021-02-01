@@ -48,7 +48,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="@dimen/BiggestPadding20"
-                android:background="@color/line_color"
+                android:background="@color/color_line"
                 app:layout_constraintLeft_toLeftOf="@id/leftGuide"
                 app:layout_constraintRight_toRightOf="@id/rightGuide"
                 app:layout_constraintTop_toBottomOf="@id/avatarIv" />

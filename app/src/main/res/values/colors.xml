@@ -7,14 +7,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="color_major">#FF7654FF</color>                     <!-- 主色-->
+    <color name="color_major">#0E91FF</color>                     <!-- 主色-->
     <color name="color_major_pressed">#FF5938DD</color>           <!-- 按下：品牌主色/按钮背景/点击文字-->
-    <color name="color_minor">#FF418D92</color>                   <!-- 可点击文字/辅助色-->
+    <color name="color_minor">#00B9FF</color>                   <!-- 可点击文字/辅助色-->
     <color name="color_minor_pressed">#FF1A6B71</color>           <!-- 按下：辅助色/按钮背景/点击文字-->
-    <color name="color_headline_1">#FF000000</color>                    <!-- 主要标题色-->
-    <color name="color_headline_2">#FF333333</color>                        <!-- 次要标题色-->
-    <color name="color_text_1">#FF333333</color>                        <!-- 一级文字色-->
-    <color name="color_text_2">#FF666666</color>                        <!-- 二级文字色-->
+    <color name="color_text_1">#FF000000</color>                        <!-- 一级文字色-->
+    <color name="color_text_2">#868686</color>                        <!-- 二级文字色-->
     <color name="color_text_3">#FF999999</color>                        <!-- 三级文字色-->
     <color name="color_text_reverse_1">#FFFFFFFF</color>                 <!-- 一级反白文字色-->
     <color name="color_text_link">#FF7654FF</color>                     <!-- 可点击文字/主色/链接文字-->
@@ -27,13 +25,9 @@
     <color name="color_border">#FFDDDDDD</color>                  <!-- 普通边框-->
     <color name="color_label">#BDC1D6</color>                <!-- 城市label背景-->
 
-    <color name="text_color_title">#333333</color>
-    <color name="text_color_content">#FF666666</color>
-    <color name="text_color_hint">#ADADB8</color>
-    <color name="text_color_link">#4A7DA2</color>
     <color name="btn_color_cancel">#FA9C69</color>
+    <color name="tab_color">#A7A7A7</color>
     <color name="btn_color_confirm">#EF6318</color>
     <color name="dialog_color_edit_bg">#F1F1F1</color>
-    <color name="line_color">#E5E5E5</color>
 
 </resources>

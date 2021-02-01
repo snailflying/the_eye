@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:leftIcon="@drawable/ic_back"
             app:title="登录"
-            app:titleColor="@color/text_color_title"
+            app:titleColor="@color/color_text_1"
             app:titleSize="18sp" />
 
     <TextView
@@ -73,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="18dp"
-            android:background="@color/line_color"
+            android:background="@color/color_line"
             app:layout_constraintLeft_toLeftOf="@id/leftGuide"
             app:layout_constraintRight_toRightOf="@id/rightGuide"
             app:layout_constraintTop_toBottomOf="@id/phoneIv" />
@@ -106,7 +106,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="18dp"
-            android:background="@color/line_color"
+            android:background="@color/color_line"
             app:layout_constraintLeft_toLeftOf="@id/leftGuide"
             app:layout_constraintRight_toRightOf="@id/rightGuide"
             app:layout_constraintTop_toBottomOf="@id/passwordIv" />
