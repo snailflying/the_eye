@@ -27,6 +27,7 @@
 
     <color name="btn_color_cancel">#FA9C69</color>
     <color name="tab_color">#A7A7A7</color>
+    <color name="tab_select_color">#0797E4</color>
     <color name="btn_color_confirm">#EF6318</color>
     <color name="dialog_color_edit_bg">#F1F1F1</color>
 

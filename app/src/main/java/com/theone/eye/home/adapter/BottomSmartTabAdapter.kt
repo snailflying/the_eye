@@ -3,7 +3,10 @@ package com.theone.eye.home.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import com.theone.eye.R
+import com.theone.eye.home.entity.BottomBarEn
 import com.theone.framework.widget.smarttablayout.SmartTabAdapter
 
 /**
@@ -12,37 +15,28 @@ import com.theone.framework.widget.smarttablayout.SmartTabAdapter
  * @Description
  */
 class BottomSmartTabAdapter(
-    var layoutResId: Int,
-    var tabViewTextViewId: Int = View.NO_ID
-) : SmartTabAdapter<BottomSmartTabAdapter.ViewHolder>() {
-    private val mDataList = mutableListOf<String>()
+    var layoutResId: Int) : SmartTabAdapter<BottomSmartTabAdapter.ViewHolder>() {
+    private val mDataList = mutableListOf<BottomBarEn>()
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(layoutResId, parent, false))
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val customText: View =
-            if (tabViewTextViewId != View.NO_ID) {
-                viewHolder.itemView.findViewById(tabViewTextViewId)
-            } else {
-                viewHolder.itemView
-            }
-
+        val iconImg: ImageView = viewHolder.itemView.findViewById(R.id.iconIv)
+        val customText: TextView = viewHolder.itemView.findViewById(R.id.titleTv)
+        iconImg.setImageResource(getTabIconRes(position))
         val isSelect = currTabIndex == position
         viewHolder.itemView.isSelected = isSelect
         customText.isSelected = isSelect
-        if (customText is TextView) {
-            customText.text = getTabTitle(position)
-            onBindViewHolderWrapper(customText, isSelect)
-        }
+        customText.text = getTabTitle(position)
     }
 
     override fun getCount(): Int {
         return mDataList.size
     }
 
-    fun setData(data: List<String>) {
+    fun setData(data: List<BottomBarEn>) {
         mDataList.clear()
         data.let {
             mDataList.addAll(it)
@@ -50,17 +44,16 @@ class BottomSmartTabAdapter(
         }
     }
 
-    private fun onBindViewHolderWrapper(textView: TextView, isSelect: Boolean) {
-        /*if (isSelect) {
-            textView.setTextColor(getColor(R.color.white))
-        } else {
-            textView.setTextColor(getColor(R.color.color_333333))
-        }*/
+    private fun getTabIconRes(position: Int): Int {
+        if (mDataList.size >= position) {
+            return mDataList[position].iconRes
+        }
+        return 0
     }
 
     private fun getTabTitle(position: Int): String? {
         if (mDataList.size >= position) {
-            return mDataList[position]
+            return mDataList[position].title
         }
         return null
     }
