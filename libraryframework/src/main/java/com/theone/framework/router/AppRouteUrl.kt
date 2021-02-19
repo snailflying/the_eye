@@ -6,6 +6,7 @@ package com.theone.framework.router
  * @Description 路由定义表
  */
 object AppRouteUrl {
+    const val ROUTE_HOME_URL = "home"
     const val ROUTE_WEB_URL = "web"
     const val WEB_DATA_URL = "url"
     const val LOGIN_URL = "login"

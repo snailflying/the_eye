@@ -8,7 +8,16 @@
         <item name="android:screenOrientation">portrait</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="AppTheme.Launcher" parent="Theme.AppCompat">
+        <item name="android:windowDisablePreview">false</item>
+        <item name="android:windowBackground">@drawable/splash_logo_bg</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
 
+    </style>
     <style name="ScrollViewStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>

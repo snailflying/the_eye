@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.chenenyu.router.annotation.Route
 import com.themone.core.base.impl.CoreFragment
 import com.themone.core.util.StatusBarUtil
 import com.theone.eye.R
@@ -14,9 +15,11 @@ import com.theone.eye.databinding.ActivityHomeBinding
 import com.theone.eye.home.adapter.BottomSmartTabAdapter
 import com.theone.eye.mine.MineFragment
 import com.theone.framework.base.BaseActivity
+import com.theone.framework.router.AppRouteUrl
 import com.theone.framework.widget.smarttablayout.SimpleSmartTabAdapter
 import com.theone.framework.widget.smarttablayout.SmartTabLayout
 
+@Route(value = [AppRouteUrl.ROUTE_HOME_URL])
 class HomeActivity : BaseActivity() {
 
     lateinit var binding: ActivityHomeBinding
