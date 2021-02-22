@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/clRootView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clThree1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/color_vip1"
+            app:layout_constraintBottom_toBottomOf="@id/clThree3"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/clThree2"
+            app:layout_constraintTop_toTopOf="@id/clThree2">
+
+        <include layout="@layout/include_item_recycle_one_two_three_big" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clThree2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="8dp"
+            android:background="@color/color_vip2"
+            app:layout_constraintDimensionRatio="1.65"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@id/clThree1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginTop="0dp"
+            tools:layout_marginTop="8dp">
+
+        <include layout="@layout/include_item_recycle_one_two_three_little" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clThree3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/color_vip3"
+            app:layout_constraintDimensionRatio="1.65"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="@+id/clThree2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clThree2">
+
+        <include layout="@layout/include_item_recycle_one_two_three_little" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

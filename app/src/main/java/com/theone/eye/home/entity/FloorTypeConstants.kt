@@ -51,9 +51,6 @@ object FloorTypeConstants {
      * 横向滚动(ROOM层)
      */
     const val ROOM_SCROLL = "scroll"
-    const val HOME_VIEW_TYPE_BANNER = 1001
-    const val HOME_VIEW_TYPE_ONE_PLUS_THREE = 1002
-    const val HOME_VIEW_TYPE_SCROLL = 1003
 
     /**
      * 默认一页的获取数据长度

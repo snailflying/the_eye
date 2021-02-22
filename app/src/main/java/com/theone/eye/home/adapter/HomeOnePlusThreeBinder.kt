@@ -10,10 +10,9 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.chenenyu.router.Router
 import com.drakeet.multitype.ItemViewBinder
-import com.piaoyou.piaoxingqiu.app.entity.api.FloorBean
-import com.piaoyou.piaoxingqiu.app.entity.api.FloorItem
 import com.theone.eye.R
-import com.theone.eye.databinding.RecycleHomeFloorOnePlusThreeLittleBinding
+import com.theone.eye.databinding.RecycleHomeFloorOnePlusThreeBinding
+import com.theone.eye.home.entity.FloorItemDemo
 import com.theone.framework.ext.clickWithTrigger
 import com.theone.framework.ext.dp2px
 import java.io.Serializable
@@ -43,70 +42,46 @@ import java.util.*
  * ----------------  ---------------
  */
 
-class HomeOnePlusThreeBinder : ItemViewBinder<HomeOnePlusThreeBinder.HomeOnePlusThreeLittleEn, HomeOnePlusThreeBinder.HomeOnePlusThreeHolder>() {
+class HomeOnePlusThreeBinder :
+    ItemViewBinder<HomeOnePlusThreeBinder.HomeOnePlusThreeEn, HomeOnePlusThreeBinder.HomeOnePlusThreeHolder>() {
     override fun onCreateViewHolder(inflater: LayoutInflater, parent: ViewGroup): HomeOnePlusThreeHolder {
-        return HomeOnePlusThreeHolder(RecycleHomeFloorOnePlusThreeLittleBinding.inflate(inflater, parent, false).root)
+        return HomeOnePlusThreeHolder(RecycleHomeFloorOnePlusThreeBinding.inflate(inflater, parent, false).root)
     }
 
-    override fun onBindViewHolder(holder: HomeOnePlusThreeHolder, item: HomeOnePlusThreeLittleEn) {
+    override fun onBindViewHolder(holder: HomeOnePlusThreeHolder, item: HomeOnePlusThreeEn) {
         holder.bindViewHolder(item)
     }
 
-    class HomeOnePlusThreeLittleEn(floorBean: FloorBean?) : HomeBaseOnePlusThreeEn(floorBean)
-
-    class HomeOnePlusThreeHolder(rootView: View) : HomeMainViewHolder<HomeBaseOnePlusThreeEn>(rootView) {
+    class HomeOnePlusThreeHolder(rootView: View) : HomeMainViewHolder<HomeOnePlusThreeEn>(rootView) {
         private val mContext: Context = itemView.context
-        private val mImageRadius: Float = dp2px( 4f).toFloat()
+        private val mImageRadius: Float = dp2px(4f).toFloat()
         private val mClRootView: ConstraintLayout = rootView.findViewById(R.id.clRootView)
-        override fun bindViewHolder(homeTopicEn: HomeBaseOnePlusThreeEn) {
+        override fun bindViewHolder(homeTopicEn: HomeOnePlusThreeEn) {
             val itemBeans = homeTopicEn.list
-            itemView.setPadding(dp2px( homeTopicEn.marginLeft.toFloat()),
-                dp2px( homeTopicEn.marginTop.toFloat()),
+            itemView.setPadding(
+                dp2px(homeTopicEn.marginLeft.toFloat()),
+                dp2px(homeTopicEn.marginTop.toFloat()),
                 dp2px(homeTopicEn.marginRight.toFloat()),
-                dp2px( homeTopicEn.marginBottom.toFloat()))
+                dp2px(homeTopicEn.marginBottom.toFloat())
+            )
             val size = itemBeans.size
-            if (size == 1) {
+            if (size != 0) {
                 mClRootView.getChildAt(0).visibility = View.VISIBLE
-                mClRootView.getChildAt(1).visibility = View.GONE
-                mClRootView.getChildAt(2).visibility = View.GONE
-                mClRootView.getChildAt(3).visibility = View.GONE
-                mClRootView.getChildAt(4).visibility = View.GONE
-                mClRootView.getChildAt(5).visibility = View.GONE
-                setDescShow(homeTopicEn.floorBean, itemBeans[0], 0)
-            } else if (size == 2) {
-                mClRootView.getChildAt(0).visibility = View.GONE
                 mClRootView.getChildAt(1).visibility = View.VISIBLE
                 mClRootView.getChildAt(2).visibility = View.VISIBLE
-                mClRootView.getChildAt(3).visibility = View.GONE
-                mClRootView.getChildAt(4).visibility = View.GONE
-                mClRootView.getChildAt(5).visibility = View.GONE
-                setDescShow(homeTopicEn.floorBean, itemBeans[0], 1)
-                setDescShow(homeTopicEn.floorBean, itemBeans[1], 2)
-            } else if (size > 2) {
-                mClRootView.getChildAt(0).visibility = View.GONE
-                mClRootView.getChildAt(1).visibility = View.GONE
-                mClRootView.getChildAt(2).visibility = View.GONE
-                mClRootView.getChildAt(3).visibility = View.VISIBLE
-                mClRootView.getChildAt(4).visibility = View.VISIBLE
-                mClRootView.getChildAt(5).visibility = View.VISIBLE
-                setDescShow(homeTopicEn.floorBean, itemBeans[0], 3)
-                setDescShow(homeTopicEn.floorBean, itemBeans[1], 4)
-                setDescShow(homeTopicEn.floorBean, itemBeans[2], 5)
+                setDescShow(itemBeans[0], 0)
+                setDescShow(itemBeans[1], 1)
+                setDescShow(itemBeans[2], 2)
             } else {
                 mClRootView.visibility = View.GONE
             }
         }
 
-        private fun setDescShow(floorBean: FloorBean?, itemBean: FloorItem?, viewIndex: Int) {
+        private fun setDescShow(itemBean: HomeOnePlusThreeEn.OnePlusThreeEn?, viewIndex: Int) {
             if (null == itemBean) {
                 return
             }
             val parent = mClRootView.getChildAt(viewIndex)
-            if (itemBean.getLabel() != null) {
-                val tvLabel: TextView = parent.findViewById(R.id.tvLabel)
-                tvLabel.visibility = View.VISIBLE
-                tvLabel.text = itemBean.getLabel()!!.title
-            }
             if (!TextUtils.isEmpty(itemBean.title)) {
                 val tvTitle: TextView = parent.findViewById(R.id.tvTitle)
                 tvTitle.visibility = View.VISIBLE
@@ -118,12 +93,13 @@ class HomeOnePlusThreeBinder : ItemViewBinder<HomeOnePlusThreeBinder.HomeOnePlus
                 tvSubTitle.text = itemBean.subTitle
             }
 
-            val ivPoster: ImageView = parent.findViewById(R.id.ivPoster)
-
-            ivPoster.clickWithTrigger {
+            if (itemBean.iconRes != null) {
+                val ivPoster: ImageView = parent.findViewById(R.id.ivPoster)
+                ivPoster.setImageResource(itemBean.iconRes)
+            }
+            parent.clickWithTrigger {
                 //todo
                 Router.build(itemBean.navigateUrl).go(mContext)
-//            Router.build("https://mpxq-qa.piaoxingqiu.cn/topic-activity/5ecf3b726c622948c4ab831e?hideNavigationBar=1").go(mContext)
             }
         }
 
@@ -131,30 +107,33 @@ class HomeOnePlusThreeBinder : ItemViewBinder<HomeOnePlusThreeBinder.HomeOnePlus
 
     }
 
-    open class HomeBaseOnePlusThreeEn(floorBean: FloorBean?) : Serializable {
-        private val bannerEns: List<FloorItem>?
-        val floorBean: FloorBean?
+    class HomeOnePlusThreeEn(private val floorBean: FloorItemDemo?) : Serializable {
 
-        val list: List<FloorItem>
+        private val bannerEns: List<OnePlusThreeEn>? = floorBean?.subItems?.map { floorItem ->
+            OnePlusThreeEn(floorItem.title, floorItem.subTitle, floorItem.iconRes, floorItem.navigateUrl)
+        }
+
+        val list: List<OnePlusThreeEn>
             get() = bannerEns ?: ArrayList()
 
         val marginLeft: Int
-            get() = floorBean!!.getCurRoom().margin[0]
+            get() = floorBean!!.margin[0]
 
         val marginTop: Int
-            get() = floorBean!!.getCurRoom().margin[1]
+            get() = floorBean!!.margin[1]
 
         val marginRight: Int
-            get() = floorBean!!.getCurRoom().margin[2]
+            get() = floorBean!!.margin[2]
 
         val marginBottom: Int
-            get() = floorBean!!.getCurRoom().margin[3]
+            get() = floorBean!!.margin[3]
 
-        init {
-            val roomBean = floorBean!!.getCurRoom()
-            this.floorBean = floorBean
-            bannerEns = roomBean.items
-        }
+        data class OnePlusThreeEn(
+            val title: String?,
+            val subTitle: String?,
+            val iconRes: Int?,
+            val navigateUrl: String?
+        ) : Serializable
     }
 }
 

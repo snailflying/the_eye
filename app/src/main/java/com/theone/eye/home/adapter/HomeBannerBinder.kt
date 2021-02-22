@@ -1,23 +1,19 @@
 package com.theone.eye.home.adapter
 
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.annotation.ColorInt
-import androidx.core.graphics.ColorUtils
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.drakeet.multitype.ItemViewBinder
-import com.piaoyou.piaoxingqiu.app.entity.api.FloorBean
 import com.piaoyou.piaoxingqiu.app.entity.api.FloorItem
-import com.piaoyou.piaoxingqiu.app.entity.api.FloorRoom
 import com.theone.eye.R
 import com.theone.eye.databinding.ItemHomeFloorBannerImgBinding
 import com.theone.eye.databinding.RecycleHomeFloorBannerItemBinding
 import com.theone.eye.home.HomeEventConstants
+import com.theone.eye.home.entity.FloorItemDemo
 import com.theone.framework.ext.clickWithTrigger
 import com.theone.framework.ext.dp2px
 import com.theone.framework.ext.getColor
@@ -36,16 +32,10 @@ import java.util.*
  */
 class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBannerBinder.HomeBannerHolder>() {
 
-    var mPageChangeCallback: OnBannerPageChangeCallback? = null
-
     var holder: HomeBannerHolder? = null
 
-    fun setOnBannerPageChange(pageChangeCallback: OnBannerPageChangeCallback) {
-        this.mPageChangeCallback = pageChangeCallback
-    }
-
     override fun onCreateViewHolder(inflater: LayoutInflater, parent: ViewGroup): HomeBannerHolder {
-        holder = HomeBannerHolder(RecycleHomeFloorBannerItemBinding.inflate(inflater,parent,false))
+        holder = HomeBannerHolder(RecycleHomeFloorBannerItemBinding.inflate(inflater, parent, false))
         return holder!!
     }
 
@@ -61,14 +51,11 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
         holder?.stopBannerTurning()
     }
 
-    inner class HomeBannerHolder constructor(binding:RecycleHomeFloorBannerItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class HomeBannerHolder constructor(binding: RecycleHomeFloorBannerItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         private val mBanner: Banner = itemView.findViewById(R.id.banner)
-        var finalBannerList: List<FloorItem>? = mutableListOf()
+        var finalBannerList: List<HomeBannerEn.BannerEn>? = mutableListOf()
 
-        /**
-         * 用于统计曝光量的集合
-         */
-        private val list: MutableList<String> = ArrayList()
 
         fun startBannerTurning() {
             mBanner.startTurning()
@@ -78,12 +65,14 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
             mBanner.stopTurning()
         }
 
-         fun bindViewHolder(homeBannerEntryEn: HomeBannerEn) {
+        fun bindViewHolder(homeBannerEntryEn: HomeBannerEn) {
             val param = mBanner.layoutParams as? ViewGroup.MarginLayoutParams
-            param?.setMargins(0,
-                    dp2px(homeBannerEntryEn.marginTop.toFloat()),
-                    0,
-                    dp2px(homeBannerEntryEn.marginBottom.toFloat()))
+            param?.setMargins(
+                0,
+                dp2px(homeBannerEntryEn.marginTop.toFloat()),
+                0,
+                dp2px(homeBannerEntryEn.marginBottom.toFloat())
+            )
 
             setBannerCycleView(homeBannerEntryEn)
         }
@@ -93,12 +82,6 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
             if (finalBannerList.isNullOrEmpty()) {
                 itemView.visibility = View.GONE
                 return
-            }
-            val bannerUrls = mutableListOf<String>()
-            val bannerIds: MutableList<String> = ArrayList()
-            for (bannerEn in finalBannerList!!) {
-                bannerUrls.add(bannerEn.getImageUrl())
-                bannerIds.add(bannerEn.id)
             }
 
             val indicator = IndicatorView(mBanner.context).apply {
@@ -111,21 +94,17 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
             val listener = object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
-                    val bannerEn = finalBannerList!![position]
-                    bannerEn.index = position
                 }
 
                 override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                     super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-                    val blendColor = ColorUtils.blendARGB(finalBannerList!![position % finalBannerList!!.size].getBgColor(), finalBannerList!![(position + 1) % finalBannerList!!.size].getBgColor(), positionOffset)
-                    mPageChangeCallback?.onPageScrolled(blendColor)
                 }
             }
             mBanner.setAutoTurningTime(BANNER_DELAY_TIME)
-                    .setIndicator(indicator)
-                    .setPageMargin(0, dp2px(homeBannerEn.marginLeft.toFloat()))
-                    .setOuterPageChangeListener(listener)
-                    .adapter = ImageAdapter(bannerUrls, finalBannerList!!)
+                .setIndicator(indicator)
+                .setPageMargin(0, dp2px(homeBannerEn.marginLeft.toFloat()))
+                .setOuterPageChangeListener(listener)
+                .adapter = ImageAdapter( finalBannerList!!)
         }
 
 
@@ -135,9 +114,11 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
         private const val BANNER_DELAY_TIME = 5000L
     }
 
-    internal class ImageAdapter(private val items: MutableList<String>, private val finalBannerList: List<FloorItem?>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal class ImageAdapter(private val finalBannerList: List<HomeBannerEn.BannerEn?>) :
+        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            val item: ImageView = ItemHomeFloorBannerImgBinding.inflate(LayoutInflater.from(parent.context), parent, false).root
+            val item: ImageView =
+                ItemHomeFloorBannerImgBinding.inflate(LayoutInflater.from(parent.context), parent, false).root
             return ImageViewHolder(item)
         }
 
@@ -145,10 +126,13 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
             val imageViewHolder: ImageViewHolder = holder as ImageViewHolder
             /*imageViewHolder.image.setImageURI(items[position])*/
             AppImageLoader.with(imageViewHolder.image)
-                .load(items[position])
+                .load(finalBannerList[position]?.imgUrl)
                 .placeholder(R.drawable.app_default_img_banner)
                 .error(R.drawable.app_default_img_banner)
-                .transform(CenterCrop(), RoundedCornersTransformation(dp2px(6f), 0, RoundedCornersTransformation.CornerType.ALL))
+                .transform(
+                    CenterCrop(),
+                    RoundedCornersTransformation(dp2px(6f), 0, RoundedCornersTransformation.CornerType.ALL)
+                )
                 .into(imageViewHolder.image)
 
             imageViewHolder.image.clickWithTrigger {
@@ -159,7 +143,7 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
         }
 
         override fun getItemCount(): Int {
-            return items.size
+            return finalBannerList.size
         }
 
     }
@@ -168,14 +152,10 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
         internal val image: ImageView = itemView as ImageView
     }
 
-    interface OnBannerPageChangeCallback {
-        fun onPageScrolled(@ColorInt color: Int)
-    }
-
-    class HomeBannerEn(val floorBean: FloorBean) : Serializable {
+    class HomeBannerEn(val floorBean: FloorItemDemo) : Serializable {
         //轮播图
-        private val roomBean: FloorRoom = floorBean.getCurRoom()
-        val list: List<FloorItem>?
+        private val roomBean: FloorItemDemo = floorBean.getCurSubItem()
+        val list: List<BannerEn>?
 
         val marginLeft: Int
             get() = roomBean.margin[0]
@@ -192,13 +172,35 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
         init {
             //因后台不支持，手动设置margin
             if (floorBean.isLastTypeHotBuy() || floorBean.isLastTypeNone()) {
-                roomBean.margin = listOf(HomeEventConstants.HOME_FLOOR_MARGIN_LEFT, HomeEventConstants.HOME_FLOOR_FIRST_TOP, HomeEventConstants.HOME_FLOOR_MARGIN_RIGHT, 0)
+                roomBean.margin = listOf(
+                    HomeEventConstants.HOME_FLOOR_MARGIN_LEFT,
+                    HomeEventConstants.HOME_FLOOR_FIRST_TOP,
+                    HomeEventConstants.HOME_FLOOR_MARGIN_RIGHT,
+                    0
+                )
             } else if (floorBean.isLastTypeTitle()) {
-                roomBean.margin = listOf(HomeEventConstants.HOME_FLOOR_MARGIN_LEFT, HomeEventConstants.HOME_FLOOR_MARGIN_TOP_FOR_TITLE, HomeEventConstants.HOME_FLOOR_MARGIN_RIGHT, 0)
+                roomBean.margin = listOf(
+                    HomeEventConstants.HOME_FLOOR_MARGIN_LEFT,
+                    HomeEventConstants.HOME_FLOOR_MARGIN_TOP_FOR_TITLE,
+                    HomeEventConstants.HOME_FLOOR_MARGIN_RIGHT,
+                    0
+                )
             } else {
-                roomBean.margin = listOf(HomeEventConstants.HOME_FLOOR_MARGIN_LEFT, HomeEventConstants.HOME_FLOOR_MARGIN_TOP, HomeEventConstants.HOME_FLOOR_MARGIN_RIGHT, 0)
+                roomBean.margin = listOf(
+                    HomeEventConstants.HOME_FLOOR_MARGIN_LEFT,
+                    HomeEventConstants.HOME_FLOOR_MARGIN_TOP,
+                    HomeEventConstants.HOME_FLOOR_MARGIN_RIGHT,
+                    0
+                )
             }
-            list = roomBean.items
+            list = floorBean.subItems?.map {
+                BannerEn(it.imgUrl, it.navigateUrl)
+            }
         }
+
+        data class BannerEn(
+            val imgUrl: String?,
+            val navigateUrl: String?
+        ) : Serializable
     }
 }

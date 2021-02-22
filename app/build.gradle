@@ -39,7 +39,6 @@ android {
     productFlavors {
         qa {
             dimension "eye"
-            applicationId "com.theone.eye"
             applicationIdSuffix ".qa"
             versionNameSuffix ".qa"
             resValue "string", "app_name", "EYE-QA"
@@ -49,7 +48,6 @@ android {
         }
         online {
             dimension "eye"
-            applicationId "com.theone.eye"
             resValue "string", "app_name", "EYE"
             buildConfigField 'String', 'PRODUCT_FLAVORS', '"online"'
             // App and library's flavor have the same name.

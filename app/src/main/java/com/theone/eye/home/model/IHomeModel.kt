@@ -1,7 +1,7 @@
 package com.theone.eye.home.model
 
-import com.piaoyou.piaoxingqiu.app.entity.api.FloorBean
 import com.themone.core.base.IModel
+import com.theone.eye.home.entity.FloorItemDemo
 import com.theone.framework.http.ApiResponse
 import io.reactivex.rxjava3.core.Observable
 
@@ -10,7 +10,7 @@ import io.reactivex.rxjava3.core.Observable
  * @Date 2020/11/16
  * @Description
  */
-interface IHomeModel:IModel {
+interface IHomeModel : IModel {
 
     /**
      * 加载数据列表
@@ -18,5 +18,5 @@ interface IHomeModel:IModel {
      * @param params
      * @return
      */
-    fun getHomeFloor(): Observable<ApiResponse<FloorBean>>
+    fun getHomeFloor(): Observable<ApiResponse<List<FloorItemDemo>>>
 }
