@@ -1,6 +1,6 @@
 package com.theone.eye.base.user
 
-import com.theone.eye.user.login.entity.LoginRes
+import com.theone.eye.ui.user.login.entity.LoginRes
 import com.theone.framework.http.HttpClient
 import java.io.Serializable
 

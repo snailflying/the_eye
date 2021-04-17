@@ -8,6 +8,7 @@
         <item name="android:screenOrientation">portrait</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppTheme.Launcher" parent="Theme.AppCompat">
         <item name="android:windowDisablePreview">false</item>
         <item name="android:windowBackground">@drawable/splash_logo_bg</item>
@@ -18,6 +19,7 @@
         <item name="windowNoTitle">true</item>
 
     </style>
+
     <style name="ScrollViewStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -55,7 +57,15 @@
 
     <style name="Setting.Content">
         <item name="android:textColor">@color/color_text_1</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Setting.Edit">
+        <item name="android:textColor">@color/color_text_1</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:maxLength">1000</item>
+        <item name="android:textColorHint">@color/color_text_hint</item>
+        <item name="android:background">@color/color_transparent</item>
     </style>
 
     <style name="Setting.Desc">
@@ -68,12 +78,7 @@
         <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="Setting.Edit">
-        <item name="android:textColor">@color/color_text_1</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColorHint">@color/color_text_link</item>
-        <item name="android:background">@color/color_transparent</item>
-    </style>
+
     <!--   所有的按钮，不按页面区分，统一放一起-->
     <style name="AppBtn" />
 
@@ -83,7 +88,7 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">16sp</item>
         <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/shape_app_btn_main</item>
+        <item name="android:background">@drawable/sel_app_btn_main</item>
     </style>
 
     <style name="AppBtn.Dialog">
@@ -98,10 +103,10 @@
     </style>
 
     <style name="AppBtn.Dialog.Confirm">
-        <item name="android:background">@drawable/shape_app_btn_dialog_confirm</item>
+        <item name="android:background">@drawable/shape_app_btn_confirm</item>
     </style>
 
     <style name="AppBtn.Dialog.Cancel">
-        <item name="android:background">@drawable/shape_app_btn_dialog_cancel</item>
+        <item name="android:background">@drawable/shape_app_btn_cancel</item>
     </style>
 </resources>

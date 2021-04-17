@@ -13,8 +13,9 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.appointment.AppointmentAddActivity"></activity>
         <activity
-                android:name=".splash.SplashActivity"
+                android:name=".ui.splash.SplashActivity"
                 android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,21 +23,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.HomeActivity">
-            <!-- <intent-filter>
+        <activity android:name=".ui.home.HomeActivity">
+
+            <!--
+             <intent-filter>
                  <action android:name="android.intent.action.MAIN" />
 
                  <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
+             </intent-filter>
+            -->
         </activity>
         <activity
-                android:name=".user.login.LoginActivity"
+                android:name=".ui.user.login.LoginActivity"
                 android:screenOrientation="portrait" />
         <activity
-                android:name=".user.login.RegisterActivity"
+                android:name=".ui.user.login.RegisterActivity"
                 android:screenOrientation="portrait" />
         <activity
-                android:name=".user.login.ResetPwdActivity"
+                android:name=".ui.user.login.ResetPwdActivity"
                 android:screenOrientation="portrait" />
     </application>
 

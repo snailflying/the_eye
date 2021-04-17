@@ -16,6 +16,7 @@
     <color name="color_text_3">#FF999999</color>                        <!-- 三级文字色-->
     <color name="color_text_reverse_1">#FFFFFFFF</color>                 <!-- 一级反白文字色-->
     <color name="color_text_link">#FF7654FF</color>                     <!-- 可点击文字/主色/链接文字-->
+    <color name="color_text_hint">#FF999999</color>                     <!-- 提示语-->
     <color name="color_text_tip">#FFDC7400</color>                 <!-- 提示/警告（不可点击）-->
     <color name="color_text_disabled">#FFCCCCCC</color>      <!-- 不可用文字颜色-->
     <color name="color_text_placeholder">#FFCFCFCF</color>      <!-- 输入框提示文案-->
@@ -30,7 +31,8 @@
     <color name="color_vip3">#FAF5FC</color>
     <color name="tab_color">#A7A7A7</color>
     <color name="tab_select_color">#0797E4</color>
-    <color name="btn_color_confirm">#EF6318</color>
+    <color name="btn_color_confirm">#2F9BFE</color>
+    <color name="btn_color_confirm1">#FCAE30</color>
     <color name="btn_color_cancel">#FFCCCCCC</color>
     <color name="dialog_color_edit_bg">#F1F1F1</color>
 

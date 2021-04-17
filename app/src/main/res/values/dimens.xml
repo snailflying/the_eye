@@ -70,4 +70,6 @@
     <dimen name="MoreLargestPadding54">54dip</dimen>
     <dimen name="MoreLargestPadding60">60dip</dimen>
     <dimen name="MoreLargestPadding78">78dip</dimen>
+    <!-- 业务层 -->
+    <dimen name="post_image_height">96dp</dimen>
 </resources>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+
+    <default fetch="https://github.com/snailflying" />
+
+    <project origin="the_eye.git">
+        <include name="app" />
+    </project>
+    <module name="app">
+        <dependencies>
+            <implementation name="libraryFramework" />
+        </dependencies>
+    </module>
+<!--    <module name="libraryCore" origin="MvvmLibrary.git" branch="master"  local="libraryCore" />-->
+
+    <module name="libraryFramework"
+            origin="MvvmLibrary.git"
+            branch="master"
+            local="libraryFramework">
+        <include name="libraryCore" />
+    </module>
+</manifest>

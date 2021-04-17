@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.appointment.AppointmentAddActivity">
+
+    <com.hjq.bar.TitleBar
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/color_major"
+            app:layout_constraintTop_toTopOf="parent"
+            app:leftIcon="@drawable/ic_back_white"
+            app:rightColor="@color/white"
+            app:title="@string/text_add"
+            app:titleColor="@color/white"
+            app:titleSize="18sp" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+
+        <TextView
+                style="@style/Setting.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_name" />
+
+        <EditText
+                android:id="@+id/nameEt"
+                style="@style/Setting.Edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/SmallerPadding6"
+                android:hint="请输入姓名" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+
+        <TextView
+                style="@style/Setting.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_sex" />
+
+        <TextView
+                style="@style/Setting.Edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/SmallerPadding6"
+                android:drawableRight="@drawable/ic_next"
+                tools:text="男" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+
+        <TextView
+                style="@style/Setting.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_age" />
+
+        <EditText
+                android:id="@+id/ageEt"
+                style="@style/Setting.Edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/SmallerPadding6"
+                android:hint="请输入年龄" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+
+        <TextView
+                style="@style/Setting.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_tel" />
+
+        <EditText
+                android:id="@+id/phoneEt"
+                style="@style/Setting.Edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/SmallerPadding6"
+                android:hint="请输入手机号" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+
+        <TextView
+                style="@style/Setting.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address_now" />
+
+        <EditText
+                android:id="@+id/addressEt"
+                style="@style/Setting.Edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/SmallerPadding6"
+                android:hint="请输入当前住址" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+
+        <TextView
+                style="@style/Setting.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/appointment_time" />
+
+        <TextView
+                android:id="@+id/appointmentTimeTv"
+                style="@style/Setting.Edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/SmallerPadding6"
+                android:drawableRight="@drawable/ic_next"
+                tools:text="122.33" />
+    </LinearLayout>
+</LinearLayout>

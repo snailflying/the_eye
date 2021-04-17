@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.appointment.AppointmentAddActivity">
+
+    <RadioGroup
+            android:id="@+id/sexRg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RadioButton
+                android:id="@+id/manRb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/NormalPadding12"
+                android:text="@string/text_man" />
+
+        <RadioButton
+                android:id="@+id/womanRb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/NormalPadding12"
+                android:text="@string/text_woman" />
+    </RadioGroup>
+
+    <TextView
+            android:id="@+id/confirmBtn"
+            style="@style/AppBtn.Login"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="@dimen/dimension_margin_horizon"
+            android:layout_marginTop="@dimen/MoreLargestPadding60"
+            android:layout_marginBottom="@dimen/MiddlePadding10"
+            android:paddingVertical="@dimen/MiddlePadding10"
+            android:text="@string/text_confirm" />
+
+</LinearLayout>

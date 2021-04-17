@@ -1,9 +1,9 @@
 package com.theone.eye.base.net.api
 
 import com.shownow.shownow.base.constant.NetConstant
-import com.theone.eye.home.entity.HomeEn
-import com.theone.eye.user.login.entity.LoginRes
-import com.theone.eye.user.register.entity.RegisterRes
+import com.theone.eye.ui.home.entity.HomeEn
+import com.theone.eye.ui.user.login.entity.LoginRes
+import com.theone.eye.ui.user.register.entity.RegisterRes
 import com.theone.framework.http.ApiResponse
 import com.theone.framework.http.EnvironmentManager
 import io.reactivex.rxjava3.core.Observable
@@ -55,6 +55,16 @@ interface ApiService {
      */
     @GET("user/changeUserPwd")
     fun resetPassword(
+        @Query(NetConstant.NET_VERIFY_CODE) name: String?,
+        @Query(NetConstant.NET_LOGIN_NAME) loginName: String?,
+        @Query(NetConstant.NET_NEW_PWD) pwd: String?
+    ): Observable<ApiResponse<Any>>
+
+    /**
+     * 获取预约列表
+     */
+    @GET("appointment/getMyAppointmentList")
+    fun getAppointment(
         @Query(NetConstant.NET_VERIFY_CODE) name: String?,
         @Query(NetConstant.NET_LOGIN_NAME) loginName: String?,
         @Query(NetConstant.NET_NEW_PWD) pwd: String?
