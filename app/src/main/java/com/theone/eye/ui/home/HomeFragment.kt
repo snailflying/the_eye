@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
+import com.themone.core.util.StatusBarUtil
 import com.theone.eye.databinding.FragmentHomeMainBinding
 import com.theone.eye.ui.home.vm.HomeViewModel
 import com.theone.framework.base.BaseMvvmFragment

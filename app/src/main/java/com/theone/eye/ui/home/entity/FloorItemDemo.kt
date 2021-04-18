@@ -43,7 +43,7 @@ class FloorItemDemo : Serializable {
     /**
      * 点击路由
      */
-    val navigateUrl: String? = null
+    var navigateUrl: String? = null
 
     /**
      * 描述，“时间”或“123人想看”等

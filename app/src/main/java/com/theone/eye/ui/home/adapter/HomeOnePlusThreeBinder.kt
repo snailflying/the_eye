@@ -15,6 +15,8 @@ import com.theone.eye.databinding.RecycleHomeFloorOnePlusThreeBinding
 import com.theone.eye.ui.home.entity.FloorItemDemo
 import com.theone.framework.ext.clickWithTrigger
 import com.theone.framework.ext.dp2px
+import com.theone.framework.ext.getString
+import com.theone.framework.widget.toast.ToastUtil
 import java.io.Serializable
 import java.util.*
 
@@ -98,8 +100,11 @@ class HomeOnePlusThreeBinder :
                 ivPoster.setImageResource(itemBean.iconRes)
             }
             parent.clickWithTrigger {
-                //todo
-                Router.build(itemBean.navigateUrl).go(mContext)
+                if (itemBean.navigateUrl.isNullOrEmpty()) {
+                    ToastUtil.show(getString(R.string.comming_soon))
+                } else {
+                    Router.build(itemBean.navigateUrl).go(mContext)
+                }
             }
         }
 

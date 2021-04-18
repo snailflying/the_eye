@@ -6,8 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingTop="20dp">
+            android:orientation="vertical">
 
         <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/leftGuide"
@@ -24,45 +23,153 @@
                 app:layout_constraintGuide_end="@dimen/dimension_margin_horizon" />
 
         <ImageView
+                android:id="@+id/topBgIv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mine_top_bg"
+                app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
                 android:id="@+id/avatarIv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="48dp"
                 android:src="@drawable/default_avatar"
                 app:layout_constraintLeft_toLeftOf="@id/leftGuide"
                 app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
                 android:id="@+id/loginTv"
-                style="@style/Mine.Title"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:paddingHorizontal="@dimen/MiddlePadding10"
                 android:text="@string/text_login"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_headline_2"
                 app:layout_constraintBottom_toBottomOf="@id/avatarIv"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintLeft_toRightOf="@id/avatarIv"
                 app:layout_constraintRight_toRightOf="@id/rightGuide"
                 app:layout_constraintTop_toTopOf="@id/avatarIv" />
 
-        <ImageView
-                android:id="@+id/lineIv"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="@dimen/BiggestPadding20"
-                android:background="@color/color_line"
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/dimension_margin_horizon"
                 app:layout_constraintLeft_toLeftOf="@id/leftGuide"
                 app:layout_constraintRight_toRightOf="@id/rightGuide"
-                app:layout_constraintTop_toBottomOf="@id/avatarIv" />
+                app:layout_constraintTop_toBottomOf="@id/topBgIv">
 
-        <TextView
-                style="@style/Mine.Title"
-                android:layout_marginTop="@dimen/MiddlePadding10"
-                android:id="@+id/logoutTv"
-                android:drawableEnd="@drawable/ic_next"
-                android:drawableRight="@drawable/ic_next"
-                android:text="@string/text_logout"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toLeftOf="@id/leftGuide"
-                app:layout_constraintRight_toRightOf="@id/rightGuide"
-                app:layout_constraintTop_toBottomOf="@id/lineIv" />
+            <TextView
+                    android:id="@+id/familyTv"
+                    style="@style/Setting.Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/SmallerPadding6"
+                    android:layout_marginTop="@dimen/BiggestPadding20"
+                    android:drawableLeft="@drawable/ic_family"
+                    android:drawableRight="@drawable/ic_next"
+                    android:drawablePadding="@dimen/SmallerPadding6"
+                    android:text="家庭成员管理" />
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/BiggestPadding20"
+                    android:background="@color/color_line"
+                    app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+                    app:layout_constraintRight_toRightOf="@id/rightGuide"
+                    app:layout_constraintTop_toBottomOf="@id/topBgIv" />
+
+            <TextView
+                    android:id="@+id/feedbackTv"
+                    style="@style/Setting.Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/SmallerPadding6"
+                    android:layout_marginTop="@dimen/BiggestPadding20"
+                    android:drawableLeft="@drawable/ic_feedback"
+                    android:drawableRight="@drawable/ic_next"
+                    android:drawablePadding="@dimen/SmallerPadding6"
+                    android:text="意见反馈" />
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/BiggestPadding20"
+                    android:background="@color/color_line"
+                    app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+                    app:layout_constraintRight_toRightOf="@id/rightGuide"
+                    app:layout_constraintTop_toBottomOf="@id/topBgIv" />
+
+
+            <TextView
+                    android:id="@+id/updateTv"
+                    style="@style/Setting.Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/SmallerPadding6"
+                    android:layout_marginTop="@dimen/BiggestPadding20"
+                    android:drawableLeft="@drawable/ic_update"
+                    android:drawableRight="@drawable/ic_next"
+                    android:drawablePadding="@dimen/SmallerPadding6"
+                    android:text="检查更新" />
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/BiggestPadding20"
+                    android:background="@color/color_line"
+                    app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+                    app:layout_constraintRight_toRightOf="@id/rightGuide"
+                    app:layout_constraintTop_toBottomOf="@id/topBgIv" />
+
+            <TextView
+                    android:id="@+id/aboutUsTv"
+                    style="@style/Setting.Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/SmallerPadding6"
+                    android:layout_marginTop="@dimen/BiggestPadding20"
+                    android:drawableLeft="@drawable/ic_about_us"
+                    android:drawableRight="@drawable/ic_next"
+                    android:drawablePadding="@dimen/SmallerPadding6"
+                    android:text="关于我们" />
+
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/BiggestPadding20"
+                    android:background="@color/color_line"
+                    app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+                    app:layout_constraintRight_toRightOf="@id/rightGuide"
+                    app:layout_constraintTop_toBottomOf="@id/topBgIv" />
+
+            <TextView
+                    android:id="@+id/logoutTv"
+                    style="@style/Setting.Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/SmallerPadding6"
+                    android:layout_marginTop="@dimen/BiggestPadding20"
+                    android:drawableLeft="@drawable/ic_settings"
+                    android:drawableRight="@drawable/ic_next"
+                    android:drawablePadding="@dimen/SmallerPadding6"
+                    android:text="@string/text_logout" />
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/BiggestPadding20"
+                    android:background="@color/color_line"
+                    app:layout_constraintLeft_toLeftOf="@id/leftGuide"
+                    app:layout_constraintRight_toRightOf="@id/rightGuide"
+                    app:layout_constraintTop_toBottomOf="@id/topBgIv" />
+        </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

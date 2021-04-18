@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.theone.framework.widget.MultiStateView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/multiStateView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_background_1"
         android:descendantFocusability="blocksDescendants"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        app:msv_errorView="@layout/layout_error_service">
+        android:orientation="vertical">
+
+    <com.hjq.bar.TitleBar
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:paddingTop="25dp"
+            app:backButton="false"
+            android:background="@drawable/title_bar_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rightColor="@color/white"
+            app:title="预约体检"
+            app:titleColor="@color/white"
+            app:titleSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeRv"
@@ -19,4 +31,4 @@
             android:paddingBottom="@dimen/dimension_margin_vertical"
             android:scrollbars="none" />
 
-</com.theone.framework.widget.MultiStateView>
+</LinearLayout>

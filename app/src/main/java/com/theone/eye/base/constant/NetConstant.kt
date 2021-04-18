@@ -44,4 +44,12 @@ object NetConstant {
     const val NET_SEX = "sex"
     const val NET_PWD = "pwd"
     const val NET_NEW_PWD = "newPwd"
+
+    const val NET_USER_ID = "userId"
+    const val NET_APPOINTMENT_TIME = "appointmentTime"
+    const val NET_APPOINTMENT_PHONE = "appointPhone"
+    const val NET_APPOINTMENT_ADDR = "appointAddr"
+    const val NET_APPOINTMENT_NAME = "appointName"
+    const val NET_USER_AGE = "userAge"
+
 }

@@ -16,10 +16,12 @@ import com.theone.eye.ui.home.entity.FloorItemDemo
 import com.theone.framework.ext.clickWithTrigger
 import com.theone.framework.ext.dp2px
 import com.theone.framework.ext.getColor
+import com.theone.framework.ext.getString
 import com.theone.framework.image.AppImageLoader
 import com.theone.framework.router.AppRouter
 import com.theone.framework.widget.banner.Banner
 import com.theone.framework.widget.banner.IndicatorView
+import com.theone.framework.widget.toast.ToastUtil
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import java.io.Serializable
 
@@ -136,6 +138,8 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
             imageViewHolder.image.clickWithTrigger {
                 if (!finalBannerList.isNullOrEmpty() && finalBannerList.size > position) {
                     AppRouter.build(finalBannerList[position]!!.navigateUrl).go(imageViewHolder.image.context)
+                } else{
+                    ToastUtil.show(getString(R.string.comming_soon))
                 }
             }
         }

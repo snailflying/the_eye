@@ -19,12 +19,17 @@ class Settings private constructor() {
             prefs.edit().putEncryptString(SP_ACCESS_TOKEN, value).apply()
             field = value
         }
+    var userId = prefs.getEncryptInt(SP_USER_ID)
+        set(value) {
+            prefs.edit().putEncryptInt(SP_USER_ID, value).apply()
+            field = value
+        }
     var accessCookie = prefs.getStringSet(SP_ACCESS_COOKIE, emptySet())!!
         set(value) {
             prefs.edit().putStringSet(SP_ACCESS_COOKIE, value).apply()
             field = value
         }
-    var sex = prefs.getEncryptInt(SP_SEX, DEFAULT_SEX)
+    var sex = prefs.getEncryptInt(SP_SEX, DEFAULT_EMPTY_NUMBER)
         set(value) {
             prefs.edit().putEncryptInt(SP_SEX, value).apply()
             field = value
@@ -50,11 +55,12 @@ class Settings private constructor() {
 
         const val SP_ACCESS_TOKEN = "sp_access_token"
         const val SP_ACCESS_COOKIE = "sp_access_cookie"
+        const val SP_USER_ID = "sp_user_id"
         const val SP_SEX = "sp_sex"
         const val SP_AVATAR_URL = "sp_avatar_url"
         const val SP_MOBILE = "sp_mobile"
         const val SP_NAME = "sp_name"
-        const val DEFAULT_SEX = -1
+        const val DEFAULT_EMPTY_NUMBER = -1
 
         @SuppressLint("StaticFieldLeak")
         @Volatile

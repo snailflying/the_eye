@@ -1,6 +1,8 @@
 package com.theone.eye.base.net.api
 
 import com.shownow.shownow.base.constant.NetConstant
+import com.theone.eye.base.entity.ReportRes
+import com.theone.eye.ui.appointment.entity.AppointmentListRes
 import com.theone.eye.ui.home.entity.HomeEn
 import com.theone.eye.ui.user.login.entity.LoginRes
 import com.theone.eye.ui.user.register.entity.RegisterRes
@@ -61,23 +63,39 @@ interface ApiService {
     ): Observable<ApiResponse<Any>>
 
     /**
+     * 发起预约
+     */
+    @FormUrlEncoded
+    @POST("appointment/submitAppointMent")
+    fun addAppointment(
+        @Field(NetConstant.NET_APPOINTMENT_PHONE) pwd: String?,
+        @Field(NetConstant.NET_APPOINTMENT_TIME) time: String?,
+        @Field(NetConstant.NET_APPOINTMENT_ADDR) address: String?,
+        @Field(NetConstant.NET_APPOINTMENT_NAME) name: String?,
+        @Field(NetConstant.NET_USER_AGE) age: Int?,
+        @Field(NetConstant.NET_USER_ID) userId: Int?
+    ): Observable<ApiResponse<Any>>
+
+    /**
      * 获取预约列表
      */
     @GET("appointment/getMyAppointmentList")
-    fun getAppointment(
-        @Query(NetConstant.NET_VERIFY_CODE) name: String?,
-        @Query(NetConstant.NET_LOGIN_NAME) loginName: String?,
-        @Query(NetConstant.NET_NEW_PWD) pwd: String?
-    ): Observable<ApiResponse<Any>>
+    fun getAppointment(): Observable<ApiResponse<List<AppointmentListRes>>>
+
+    /**
+     * 获取报告
+     */
+    @GET("eyeDiagnosis/getDiagnosisById")
+    fun getReportById(appointId: String?): Observable<ApiResponse<ReportRes>>
 
     companion object {
 
         /**
          * 最后一个字符必须带"/"
          */
-        const val BASE_URL_ONLINE = "http://47.101.151.99:8090/"
-        const val BASE_URL_QA = "http://47.101.151.99:8090/"
-        const val BASE_URL_DEV = "http://47.101.151.99:8090/"
+        const val BASE_URL_ONLINE = "http://47.101.151.99:8050/"
+        const val BASE_URL_QA = "http://47.101.151.99:8050/"
+        const val BASE_URL_DEV = "http://47.101.151.99:8050/"
 
         const val BASE_H5_URL_ONLINE = "https://m.shownow.live/"
         const val BASE_H5_URL_QA = "https://mqa666.shownow.live/"

@@ -7,6 +7,7 @@ import com.theone.eye.ui.home.entity.FloorTypeConstants
 import com.theone.framework.base.BaseModel
 import com.theone.framework.ext.getString
 import com.theone.framework.http.ApiResponse
+import com.theone.framework.router.AppRouteUrl
 import io.reactivex.rxjava3.core.Observable
 
 /**
@@ -49,6 +50,7 @@ class HomeModel : BaseModel<ApiService>(ApiService::class.java), IHomeModel {
                 this.type = FloorTypeConstants.ROOM_ONE_PLUS_THREE
                 title = getString(R.string.vip_title1)
                 subTitle = getString(R.string.vip_subtitle1)
+                navigateUrl = AppRouteUrl.APPOINTMENT_LIST_URL
                 iconRes = R.drawable.ic_oppointment
             })
             it.subItems?.add(FloorItemDemo().apply {
@@ -65,6 +67,7 @@ class HomeModel : BaseModel<ApiService>(ApiService::class.java), IHomeModel {
             })
         }
     }
+
     private fun mockOneReport(): FloorItemDemo {
         return FloorItemDemo().also {
             it.type = FloorTypeConstants.FLOOR_TITLE_ONE
@@ -74,6 +77,7 @@ class HomeModel : BaseModel<ApiService>(ApiService::class.java), IHomeModel {
             })
         }
     }
+
     companion object {
 
         /**

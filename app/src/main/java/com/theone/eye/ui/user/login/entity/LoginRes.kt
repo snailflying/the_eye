@@ -8,6 +8,7 @@ import kotlinx.android.parcel.Parcelize
 class LoginRes(
     var name: String? = null,
     var sex: Int? = null,
+    var userId: Int? = null,
     @SerializedName("imgpath")
     var imgPath: String? = null
 ) : Parcelable

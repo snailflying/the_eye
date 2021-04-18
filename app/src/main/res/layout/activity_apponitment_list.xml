@@ -20,12 +20,24 @@
             app:titleColor="@color/white"
             app:titleSize="18sp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvList"
+    <com.theone.framework.widget.MultiStateView
+            android:id="@+id/multiStateView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:overScrollMode="never"
-            android:paddingBottom="@dimen/dimension_margin_vertical_1"
-            android:scrollbars="none" />
+            android:background="@color/color_background_1"
+            android:descendantFocusability="blocksDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:msv_emptyView="@layout/layout_empty_service">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:paddingBottom="@dimen/dimension_margin_vertical_1"
+                android:scrollbars="none" />
+    </com.theone.framework.widget.MultiStateView>
+
 
 </LinearLayout>

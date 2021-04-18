@@ -32,29 +32,33 @@ class HomeActivity : BaseActivity() {
         setStatusBar()
     }
 
+    override fun isFitsSystemWindows(): Boolean {
+        return false
+    }
+
     private fun setStatusBar() {
-        StatusBarUtil.compat(this, true)
+        StatusBarUtil.compat(this, false)
     }
 
     private fun setBottomBar() {
         val result = mutableListOf<BottomBarEn>()
         val tabs = resources.getStringArray(R.array.home_tab)
         tabs.forEachIndexed { index, title ->
-            when(index){
-                TAB_HOME->{
-                    val item = BottomBarEn(title,R.drawable.tab_home)
+            when (index) {
+                TAB_HOME -> {
+                    val item = BottomBarEn(title, R.drawable.tab_home)
                     result.add(item)
                 }
-                TAB_MSG->{
-                    val item = BottomBarEn(title,R.drawable.tab_msg)
+                TAB_MSG -> {
+                    val item = BottomBarEn(title, R.drawable.tab_msg)
                     result.add(item)
                 }
-                TAB_SHOP->{
-                    val item = BottomBarEn(title,R.drawable.tab_shop)
+                TAB_SHOP -> {
+                    val item = BottomBarEn(title, R.drawable.tab_shop)
                     result.add(item)
                 }
-                TAB_MINE->{
-                    val item = BottomBarEn(title,R.drawable.tab_mine)
+                TAB_MINE -> {
+                    val item = BottomBarEn(title, R.drawable.tab_mine)
                     result.add(item)
                 }
             }
@@ -68,7 +72,7 @@ class HomeActivity : BaseActivity() {
                 binding.viewpager.setCurrentItem(position, true)
             }
         })
-        binding.smartTabSTL.setTabAdapter(smartTabAdapter,true)
+        binding.smartTabSTL.setTabAdapter(smartTabAdapter, true)
     }
 
     private fun initViewPager() {

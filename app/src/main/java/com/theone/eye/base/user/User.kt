@@ -17,14 +17,20 @@ class User private constructor() : Serializable {
             Settings.create().accessToken = value
             field = value
         }
+    var userId: Int = -1
+        get() = if (field==Settings.DEFAULT_EMPTY_NUMBER) field else Settings.create().userId
+        set(value) {
+            Settings.create().userId = value
+            field = value
+        }
     var accessCookie: Set<String> = emptySet()
         get() = if (field.isNotEmpty()) field else Settings.create().accessCookie
         set(value) {
             Settings.create().accessCookie = value
             field = value
         }
-    var sex: Int = Settings.DEFAULT_SEX
-        get() = if (field != Settings.DEFAULT_SEX) field else Settings.create().sex
+    var sex: Int = Settings.DEFAULT_EMPTY_NUMBER
+        get() = if (field != Settings.DEFAULT_EMPTY_NUMBER) field else Settings.create().sex
         set(value) {
             Settings.create().sex = value
             field = value
@@ -58,7 +64,7 @@ class User private constructor() : Serializable {
         if (!Settings.create().accessCookie.isNullOrEmpty())
             this.accessCookie = Settings.create().accessCookie
 
-        if (Settings.create().sex != Settings.DEFAULT_SEX)
+        if (Settings.create().sex != Settings.DEFAULT_EMPTY_NUMBER)
             this.sex = Settings.create().sex
         if (Settings.create().avatarUrl.isNotBlank())
             this.avatarUrl = Settings.create().avatarUrl
@@ -83,8 +89,9 @@ class User private constructor() : Serializable {
     fun login(userLogin: LoginRes) {
         //init
         this.name = userLogin.name ?: ""
+        this.userId = userLogin.userId ?: Settings.DEFAULT_EMPTY_NUMBER
         this.avatarUrl = userLogin.imgPath ?: ""
-        this.sex = userLogin.sex ?: Settings.DEFAULT_SEX
+        this.sex = userLogin.sex ?: Settings.DEFAULT_EMPTY_NUMBER
         currentUser = this@User
     }
 
@@ -93,8 +100,9 @@ class User private constructor() : Serializable {
      */
     fun logout() {
         accessToken = ""
+        userId = Settings.DEFAULT_EMPTY_NUMBER
         accessCookie = emptySet()
-        sex = Settings.DEFAULT_SEX
+        sex = Settings.DEFAULT_EMPTY_NUMBER
         cellphone = ""
         avatarUrl = ""
         name = ""

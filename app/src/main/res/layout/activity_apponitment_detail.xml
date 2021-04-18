@@ -31,7 +31,7 @@
                 android:text="@string/text_name" />
 
         <TextView
-                android:id="@+id/nameEt"
+                android:id="@+id/nameTv"
                 style="@style/Setting.Edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,6 +39,7 @@
     </LinearLayout>
 
     <LinearLayout
+            android:id="@+id/sexLl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimension_margin_horizon_2">
@@ -51,6 +52,7 @@
 
         <TextView
                 style="@style/Setting.Edit"
+                android:id="@+id/sexTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/SmallerPadding6"
@@ -69,7 +71,7 @@
                 android:text="@string/text_age" />
 
         <TextView
-                android:id="@+id/ageEt"
+                android:id="@+id/ageTv"
                 style="@style/Setting.Edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,8 +89,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/text_tel" />
 
-        <EditText
-                android:id="@+id/phoneEt"
+        <TextView
+                android:id="@+id/phoneTv"
                 style="@style/Setting.Edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,8 +108,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/address_now" />
 
-        <EditText
-                android:id="@+id/addressEt"
+        <TextView
+                android:id="@+id/addressTv"
                 style="@style/Setting.Edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

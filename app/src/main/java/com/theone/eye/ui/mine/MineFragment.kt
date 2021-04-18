@@ -13,6 +13,7 @@ import com.theone.framework.base.BaseMvvmFragment
 import com.theone.framework.ext.clickWithTrigger
 import com.theone.framework.router.AppRouteUrl
 import com.theone.framework.router.AppRouter
+import com.theone.framework.widget.toast.ToastUtil
 
 /**
  * @Author ZhiQiang
@@ -48,6 +49,10 @@ class MineFragment : BaseMvvmFragment<MineViewModel>() {
     }
 
     private fun initView() {
+        binding.familyTv.clickWithTrigger { ToastUtil.show(getString(R.string.comming_soon)) }
+        binding.feedbackTv.clickWithTrigger { ToastUtil.show(getString(R.string.comming_soon)) }
+        binding.aboutUsTv.clickWithTrigger { ToastUtil.show(getString(R.string.comming_soon)) }
+        binding.updateTv.clickWithTrigger { ToastUtil.show(getString(R.string.comming_soon)) }
         binding.logoutTv.clickWithTrigger {
             User.currentUser.logout()
             refreshUi()
