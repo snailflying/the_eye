@@ -27,7 +27,7 @@ class ReportModel : BaseModel<ApiService>(ApiService::class.java), IReportModel 
         return getString(R.string.diagnose_result)
     }
 
-    override fun getReportById(appointId: String?): Observable<ApiResponse<ReportRes>> {
+    override fun getReportById(appointId: String?): Observable<ApiResponse<List<ReportRes>>> {
         return apiService.getReportById(appointId).compose(RxUtil.toMainThread())
     }
 

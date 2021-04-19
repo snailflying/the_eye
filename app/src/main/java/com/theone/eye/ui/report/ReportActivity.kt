@@ -1,7 +1,6 @@
 package com.theone.eye.ui.report
 
 import android.os.Bundle
-import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
@@ -23,12 +22,7 @@ import com.theone.framework.widget.MultiStateView
  */
 @Route(value = [AppRouteUrl.REPORT_URL], interceptors = [AppRouteUrl.LOGIN_ROUTE_INTERCEPTOR])
 class ReportActivity : BaseMvvmActivity<ReportViewModel>() {
-
-    @VisibleForTesting
-    internal lateinit var items: MutableList<Any>
-
     private lateinit var binding: ActivityReportBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,13 +37,13 @@ class ReportActivity : BaseMvvmActivity<ReportViewModel>() {
         binding.titleBar.leftView.clickWithTrigger {
             onBackPressed()
         }
-        initRecycleView()
     }
 
     private fun addObserver() {
         viewModel.httpResultLive.observe(this) {
             if (it.code == HttpStatusCode.SUCCESS) {
                 binding.multiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
+                initRecycleView()
             } else {
                 binding.multiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
 
@@ -66,7 +60,7 @@ class ReportActivity : BaseMvvmActivity<ReportViewModel>() {
         val layoutManager = GridLayoutManager(this, SPAN_COUNT)
         val spanSizeLookup = object : SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                val item = items[position]
+                val item = viewModel.itemsFloor[position]
                 return if (item is ImageOneBinder.Data) 1 else SPAN_COUNT
             }
         }

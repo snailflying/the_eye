@@ -19,6 +19,6 @@ interface IReportModel : IModel {
 
     //诊断结果
     fun getTitle3(): String
-    fun getReportById(appointId: String?): Observable<ApiResponse<ReportRes>>
+    fun getReportById(appointId: String?): Observable<ApiResponse<List<ReportRes>>>
 
 }

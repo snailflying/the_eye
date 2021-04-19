@@ -86,7 +86,7 @@ interface ApiService {
      * 获取报告
      */
     @GET("eyeDiagnosis/getDiagnosisById")
-    fun getReportById(@Query(NetConstant.NET_APPOINTMENT_ID) appointId: String?): Observable<ApiResponse<ReportRes>>
+    fun getReportById(@Query(NetConstant.NET_APPOINTMENT_ID) appointId: String?): Observable<ApiResponse<List<ReportRes>>>
 
     companion object {
 

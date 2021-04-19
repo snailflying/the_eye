@@ -22,7 +22,7 @@ import com.theone.framework.ext.getString
  */
 class ReportViewModel(override var model: IReportModel = ReportModel()) : BaseViewModel<IReportModel>() {
 
-    private val itemsFloor = mutableListOf<Any>()
+     val itemsFloor = mutableListOf<Any>()
     private val adapter: MultiTypeAdapter = MultiTypeAdapter(itemsFloor)
 
     val httpResultLive: MutableLiveData<HttpError> = MutableLiveData()
@@ -62,11 +62,11 @@ class ReportViewModel(override var model: IReportModel = ReportModel()) : BaseVi
 
     fun getReportById(appointId: String?) {
         model.getReportById(appointId)
-            .subscribe(object : BaseObserver<ReportRes>() {
-                override fun onResultSuccess(data: ReportRes?) {
-                    if (data != null) {
+            .subscribe(object : BaseObserver<List<ReportRes>>() {
+                override fun onResultSuccess(data: List<ReportRes>?) {
+                    if (!data.isNullOrEmpty()) {
                         httpResultLive.value = HttpError(HttpStatusCode.SUCCESS)
-                        setFloorData(data)
+                        setFloorData(data[0])
                     } else {
                         httpResultLive.value = HttpError(HttpStatusCode.NETWORK_EMPTY, getString(R.string.http_empty))
                     }
