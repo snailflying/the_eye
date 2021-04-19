@@ -71,7 +71,6 @@
 
     <string name="left_eye">左眼</string>
     <string name="right_eye">左眼</string>
-    <string name="diagnose_result">诊断结果</string>
     <string name="http_empty">后台返回内容为空</string>
     <string name="need_name">请输入姓名</string>
     <string name="need_age">请输入年龄</string>
@@ -80,5 +79,8 @@
     <string name="need_appointment_time">请输入预约时间</string>
     <string name="submit_error">提交错误，请重试</string>
     <string name="comming_soon">即将到来，敬请期待</string>
-
+    <string name="diagnose_result">诊断结果</string>
+    <string name="retry_later">请稍候再试</string>
+    <string name="no_diagnose_result">暂无诊断结果</string>
+    <string name="appointment_detail">预约详情</string>
 </resources>

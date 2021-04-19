@@ -10,8 +10,9 @@
     <com.hjq.bar.TitleBar
             android:id="@+id/titleBar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/title_bar_height"
             android:background="@color/color_major"
+            android:paddingTop="@dimen/title_bar_padding_top"
             app:layout_constraintTop_toTopOf="parent"
             app:leftIcon="@drawable/ic_back_white"
             app:rightColor="@color/white"
@@ -34,6 +35,7 @@
                 android:id="@+id/rvList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/color_background_2"
                 android:overScrollMode="never"
                 android:paddingBottom="@dimen/dimension_margin_vertical_1"
                 android:scrollbars="none" />

@@ -10,19 +10,21 @@
     <com.hjq.bar.TitleBar
             android:id="@+id/titleBar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/title_bar_height"
             android:background="@color/color_major"
+            android:paddingTop="@dimen/title_bar_padding_top"
             app:layout_constraintTop_toTopOf="parent"
             app:leftIcon="@drawable/ic_back_white"
             app:rightColor="@color/white"
-            app:title="@string/text_add"
+            app:title="@string/appointment_detail"
             app:titleColor="@color/white"
             app:titleSize="18sp" />
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2"
+            android:paddingHorizontal="@dimen/dimension_margin_horizon">
 
         <TextView
                 style="@style/Setting.Content"
@@ -42,7 +44,8 @@
             android:id="@+id/sexLl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2"
+            android:paddingHorizontal="@dimen/dimension_margin_horizon">
 
         <TextView
                 style="@style/Setting.Content"
@@ -51,8 +54,8 @@
                 android:text="@string/text_sex" />
 
         <TextView
-                style="@style/Setting.Edit"
                 android:id="@+id/sexTv"
+                style="@style/Setting.Edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/SmallerPadding6"
@@ -62,7 +65,8 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2"
+            android:paddingHorizontal="@dimen/dimension_margin_horizon">
 
         <TextView
                 style="@style/Setting.Content"
@@ -81,7 +85,8 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2"
+            android:paddingHorizontal="@dimen/dimension_margin_horizon">
 
         <TextView
                 style="@style/Setting.Content"
@@ -100,7 +105,8 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2"
+            android:paddingHorizontal="@dimen/dimension_margin_horizon">
 
         <TextView
                 style="@style/Setting.Content"
@@ -119,7 +125,8 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimension_margin_horizon_2">
+            android:layout_marginTop="@dimen/dimension_margin_horizon_2"
+            android:paddingHorizontal="@dimen/dimension_margin_horizon">
 
         <TextView
                 style="@style/Setting.Content"

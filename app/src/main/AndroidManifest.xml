@@ -29,6 +29,9 @@
                 android:name=".ui.appointment.AppointmentListActivity"
                 android:screenOrientation="portrait" />
         <activity
+                android:name=".ui.appointment.AppointmentDetailActivity"
+                android:screenOrientation="portrait" />
+        <activity
                 android:name=".ui.appointment.AppointmentAddActivity"
                 android:screenOrientation="portrait" />
         <activity

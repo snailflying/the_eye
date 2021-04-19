@@ -30,15 +30,15 @@ class HomeModel : BaseModel<ApiService>(ApiService::class.java), IHomeModel {
             it.type = FloorTypeConstants.FLOOR_TITLE_ONE
             it.subItems?.add(FloorItemDemo().apply {
                 this.type = FloorTypeConstants.ROOM_BANNER
-                imgUrl = (HOME_BANNER)
+                iconRes = (HOME_BANNER)
             })
             it.subItems?.add(FloorItemDemo().apply {
                 this.type = FloorTypeConstants.ROOM_BANNER
-                imgUrl = (HOME_BANNER)
+                iconRes = (HOME_BANNER)
             })
             it.subItems?.add(FloorItemDemo().apply {
                 this.type = FloorTypeConstants.ROOM_BANNER
-                imgUrl = (HOME_BANNER)
+                iconRes = (HOME_BANNER)
             })
         }
     }
@@ -74,6 +74,7 @@ class HomeModel : BaseModel<ApiService>(ApiService::class.java), IHomeModel {
             it.subItems?.add(FloorItemDemo().apply {
                 this.type = FloorTypeConstants.ROOM_ONE_REPORT
                 iconRes = R.drawable.home_report_bg
+                navigateUrl = AppRouteUrl.APPOINTMENT_LIST_URL
             })
         }
     }
@@ -83,7 +84,7 @@ class HomeModel : BaseModel<ApiService>(ApiService::class.java), IHomeModel {
         /**
          * 首页banner图片地址
          */
-        const val HOME_BANNER = "https://static1.piaoxingqiu.cn/PXQ/assets/img/app/home_banner.png"
+        const val HOME_BANNER = R.drawable.banner_mock
     }
 
 }

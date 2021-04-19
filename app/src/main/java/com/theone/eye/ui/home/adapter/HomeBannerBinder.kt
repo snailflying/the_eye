@@ -13,10 +13,7 @@ import com.theone.eye.databinding.ItemHomeFloorBannerImgBinding
 import com.theone.eye.databinding.RecycleHomeFloorBannerItemBinding
 import com.theone.eye.ui.home.HomeEventConstants
 import com.theone.eye.ui.home.entity.FloorItemDemo
-import com.theone.framework.ext.clickWithTrigger
-import com.theone.framework.ext.dp2px
-import com.theone.framework.ext.getColor
-import com.theone.framework.ext.getString
+import com.theone.framework.ext.*
 import com.theone.framework.image.AppImageLoader
 import com.theone.framework.router.AppRouter
 import com.theone.framework.widget.banner.Banner
@@ -104,7 +101,7 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
                 .setIndicator(indicator)
                 .setPageMargin(0, dp2px(homeBannerEn.marginLeft.toFloat()))
                 .setOuterPageChangeListener(listener)
-                .adapter = ImageAdapter( finalBannerList!!)
+                .adapter = ImageAdapter(finalBannerList!!)
         }
 
 
@@ -126,7 +123,7 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
             val imageViewHolder: ImageViewHolder = holder as ImageViewHolder
             /*imageViewHolder.image.setImageURI(items[position])*/
             AppImageLoader.with(imageViewHolder.image)
-                .load(finalBannerList[position]?.imgUrl)
+                .load(getDrawable(finalBannerList[position]?.iconRes))
                 .placeholder(R.drawable.app_default_img_banner)
                 .error(R.drawable.app_default_img_banner)
                 .transform(
@@ -138,7 +135,7 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
             imageViewHolder.image.clickWithTrigger {
                 if (!finalBannerList.isNullOrEmpty() && finalBannerList.size > position) {
                     AppRouter.build(finalBannerList[position]!!.navigateUrl).go(imageViewHolder.image.context)
-                } else{
+                } else {
                     ToastUtil.show(getString(R.string.comming_soon))
                 }
             }
@@ -196,12 +193,12 @@ class HomeBannerBinder : ItemViewBinder<HomeBannerBinder.HomeBannerEn, HomeBanne
                 )
             }
             list = floorBean.subItems?.map {
-                BannerEn(it.imgUrl, it.navigateUrl)
+                BannerEn(it.iconRes ?: 0, it.navigateUrl)
             }
         }
 
         data class BannerEn(
-            val imgUrl: String?,
+            val iconRes: Int,
             val navigateUrl: String?
         ) : Serializable
     }

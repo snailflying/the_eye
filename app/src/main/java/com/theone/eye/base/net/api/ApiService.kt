@@ -86,9 +86,11 @@ interface ApiService {
      * 获取报告
      */
     @GET("eyeDiagnosis/getDiagnosisById")
-    fun getReportById(appointId: String?): Observable<ApiResponse<ReportRes>>
+    fun getReportById(@Query(NetConstant.NET_APPOINTMENT_ID) appointId: String?): Observable<ApiResponse<ReportRes>>
 
     companion object {
+
+        const val USER_REFRESH_TOKEN  = "refresh"
 
         /**
          * 最后一个字符必须带"/"

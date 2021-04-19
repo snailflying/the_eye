@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.theone.eye.R
+import com.theone.eye.base.event.LogoutEvent
 import com.theone.eye.base.user.User
 import com.theone.eye.databinding.FragmentMineBinding
 import com.theone.eye.ui.home.vm.MineViewModel
@@ -14,6 +15,9 @@ import com.theone.framework.ext.clickWithTrigger
 import com.theone.framework.router.AppRouteUrl
 import com.theone.framework.router.AppRouter
 import com.theone.framework.widget.toast.ToastUtil
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 /**
  * @Author ZhiQiang
@@ -27,11 +31,21 @@ class MineFragment : BaseMvvmFragment<MineViewModel>() {
         return binding.root
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onLogoutEvent(event: LogoutEvent) {
+        refreshUi()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        EventBus.getDefault().register(this)
         initView()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        EventBus.getDefault().unregister(this)
+    }
     override fun onFragmentResume() {
         super.onFragmentResume()
         refreshUi()

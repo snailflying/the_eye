@@ -1,13 +1,10 @@
 package com.theone.eye
 
-import com.themone.core.util.LogUtil
-import com.theone.framework.http.DefaultEnvironment
 import com.theone.eye.base.net.api.ApiService
-import com.theone.eye.base.net.interceptor.CookieSaveInterceptor
-import com.theone.eye.base.net.interceptor.HeaderInterceptor
-import com.theone.eye.base.net.interceptor.MoreBaseUrlInterceptor
+import com.theone.eye.base.net.interceptor.*
+import com.theone.framework.http.DefaultEnvironment
 import okhttp3.Interceptor
-import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.OkHttpClient
 
 /**
  * @Author zhiqiang
@@ -35,6 +32,12 @@ class AppEnvironment : DefaultEnvironment() {
                 else -> ApiService.BASE_URL_ONLINE
             }
         }
+    override val okHttpClient: OkHttpClient
+        get() {
+            val builder = super.okHttpClient.newBuilder()
+            builder.authenticator(TokenAuthenticator())
+            return builder.build()
+        }
     override val interceptors: MutableList<Interceptor>
         get() {
             val interceptors = super.interceptors
@@ -45,6 +48,7 @@ class AppEnvironment : DefaultEnvironment() {
             interceptors.add(headerInterceptor)
             interceptors.add(cookieSaveInterceptor)
             interceptors.add(moreBaseUrlInterceptor)
+            interceptors.add(TokenInterceptor())
             return interceptors
         }
 

@@ -6,9 +6,10 @@ import com.chenenyu.router.annotation.Route
 import com.theone.eye.databinding.ActivityApponitmentDetailBinding
 import com.theone.eye.ui.appointment.entity.AppointmentListRes
 import com.theone.framework.base.BaseActivity
+import com.theone.framework.ext.clickWithTrigger
 import com.theone.framework.router.AppRouteUrl
 
-@Route(value = [AppRouteUrl.APPOINTMENT_DETAIL_URL])
+@Route(value = [AppRouteUrl.APPOINTMENT_DETAIL_URL], interceptors = [AppRouteUrl.LOGIN_ROUTE_INTERCEPTOR])
 class AppointmentDetailActivity : BaseActivity() {
 
     lateinit var binding: ActivityApponitmentDetailBinding
@@ -16,8 +17,12 @@ class AppointmentDetailActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityApponitmentDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        initView()
         initData()
+    }
+
+    private fun initView() {
+        binding.titleBar.leftView.clickWithTrigger { onBackPressed() }
     }
 
     private fun initData() {

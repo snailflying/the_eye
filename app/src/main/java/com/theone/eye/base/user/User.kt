@@ -1,7 +1,9 @@
 package com.theone.eye.base.user
 
+import com.theone.eye.base.event.LogoutEvent
 import com.theone.eye.ui.user.login.entity.LoginRes
 import com.theone.framework.http.HttpClient
+import org.greenrobot.eventbus.EventBus
 import java.io.Serializable
 
 /**
@@ -18,7 +20,7 @@ class User private constructor() : Serializable {
             field = value
         }
     var userId: Int = -1
-        get() = if (field==Settings.DEFAULT_EMPTY_NUMBER) field else Settings.create().userId
+        get() = if (field == Settings.DEFAULT_EMPTY_NUMBER) field else Settings.create().userId
         set(value) {
             Settings.create().userId = value
             field = value
@@ -110,6 +112,7 @@ class User private constructor() : Serializable {
 
         //退出登录时删除网络缓存
         HttpClient.okHttpClient.cache?.evictAll()
+        EventBus.getDefault().post(LogoutEvent())
     }
 
     /**

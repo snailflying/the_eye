@@ -13,6 +13,8 @@ import com.theone.eye.databinding.ActivityHomeBinding
 import com.theone.eye.ui.home.adapter.BottomSmartTabAdapter
 import com.theone.eye.ui.home.entity.BottomBarEn
 import com.theone.eye.ui.mine.MineFragment
+import com.theone.eye.ui.msg.MsgFragment
+import com.theone.eye.ui.shop.ShopFragment
 import com.theone.framework.base.BaseActivity
 import com.theone.framework.router.AppRouteUrl
 import com.theone.framework.widget.smarttablayout.SmartTabLayout
@@ -88,8 +90,8 @@ class HomeActivity : BaseActivity() {
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 TAB_HOME -> HomeFragment.instance
-                TAB_MSG -> HomeFragment.instance
-                TAB_SHOP -> HomeFragment.instance
+                TAB_MSG -> MsgFragment.newInstance()
+                TAB_SHOP -> ShopFragment.newInstance()
                 TAB_MINE -> MineFragment.instance
                 else -> HomeFragment.instance
             }

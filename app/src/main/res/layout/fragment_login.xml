@@ -115,6 +115,7 @@
             android:id="@+id/loginBtn"
             style="@style/AppBtn.Login"
             android:layout_width="0dp"
+            android:layout_marginTop="@dimen/dimension_margin_vertical_1"
             android:enabled="false"
             android:text="@string/title_login"
             app:layout_constraintLeft_toLeftOf="@id/leftGuide"

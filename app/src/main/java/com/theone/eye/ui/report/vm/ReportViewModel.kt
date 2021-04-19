@@ -25,8 +25,7 @@ class ReportViewModel(override var model: IReportModel = ReportModel()) : BaseVi
     private val itemsFloor = mutableListOf<Any>()
     private val adapter: MultiTypeAdapter = MultiTypeAdapter(itemsFloor)
 
-    val reportLive: MutableLiveData<ReportRes> = MutableLiveData()
-    val httpErrorLive: MutableLiveData<HttpError> = MutableLiveData()
+    val httpResultLive: MutableLiveData<HttpError> = MutableLiveData()
     fun initRecyclerView(recyclerView: RecyclerView) {
         adapter.register(TitleBinder())
         adapter.register(ContentOneBinder())
@@ -66,18 +65,19 @@ class ReportViewModel(override var model: IReportModel = ReportModel()) : BaseVi
             .subscribe(object : BaseObserver<ReportRes>() {
                 override fun onResultSuccess(data: ReportRes?) {
                     if (data != null) {
+                        httpResultLive.value = HttpError(HttpStatusCode.SUCCESS)
                         setFloorData(data)
                     } else {
-                        httpErrorLive.value = HttpError(HttpStatusCode.SUCCESS, getString(R.string.http_empty))
+                        httpResultLive.value = HttpError(HttpStatusCode.NETWORK_EMPTY, getString(R.string.http_empty))
                     }
                 }
 
                 override fun onResultFailed(statusCode: Int, comments: String?) {
-                    httpErrorLive.value = HttpError(statusCode, comments)
+                    httpResultLive.value = HttpError(statusCode, comments)
                 }
 
                 override fun onError(e: Throwable?) {
-                    httpErrorLive.value = HttpError()
+                    httpResultLive.value = HttpError()
                 }
 
             })

@@ -56,6 +56,7 @@ ext {
 
     //react-native
     picker_view = "4.1.9"
+    eventbus = "3.2.0"
 }
 
 

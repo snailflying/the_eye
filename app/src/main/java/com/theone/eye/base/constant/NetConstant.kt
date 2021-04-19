@@ -50,6 +50,7 @@ object NetConstant {
     const val NET_APPOINTMENT_PHONE = "appointPhone"
     const val NET_APPOINTMENT_ADDR = "appointAddr"
     const val NET_APPOINTMENT_NAME = "appointName"
+    const val NET_APPOINTMENT_ID = "appointId"
     const val NET_USER_AGE = "userAge"
 
 }

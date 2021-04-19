@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.bigkoo.pickerview.builder.TimePickerBuilder
 import com.chenenyu.router.annotation.Route
+import com.themone.core.util.StatusBarUtil
 import com.theone.eye.R
 import com.theone.eye.databinding.ActivityApponitmentAddBinding
 import com.theone.eye.ui.appointment.entity.AppointmentAddReq
@@ -19,7 +20,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-@Route(value = [AppRouteUrl.APPOINTMENT_ADD_URL])
+@Route(value = [AppRouteUrl.APPOINTMENT_ADD_URL],interceptors = [AppRouteUrl.LOGIN_ROUTE_INTERCEPTOR])
 class AppointmentAddActivity : BaseMvvmActivity<AppointmentAddViewModel>() {
 
     lateinit var binding: ActivityApponitmentAddBinding
@@ -50,7 +51,7 @@ class AppointmentAddActivity : BaseMvvmActivity<AppointmentAddViewModel>() {
 
     private fun setTimePicker() {
         fun getTime(date: Date): String {
-            val fmt: DateFormat = SimpleDateFormat("yyyy-MM-dd hh/mm/ss")
+            val fmt: DateFormat = SimpleDateFormat("yyyy/MM/dd hh:mm:ss")
             return fmt.format(date)
         }
 
@@ -74,7 +75,9 @@ class AppointmentAddActivity : BaseMvvmActivity<AppointmentAddViewModel>() {
             }
         })
     }
-
+    override fun isFitsSystemWindows(): Boolean {
+        return false
+    }
     override fun onCreateViewModel(): AppointmentAddViewModel {
         return ViewModelProvider(this).get(AppointmentAddViewModel::class.java)
     }

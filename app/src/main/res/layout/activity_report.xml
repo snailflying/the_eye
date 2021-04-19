@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:descendantFocusability="blocksDescendants"
-        app:layoutManager="LinearLayoutManager"/>
+        android:orientation="vertical"
+        tools:context=".ui.appointment.AppointmentAddActivity">
+
+    <com.hjq.bar.TitleBar
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_bar_height"
+            android:background="@color/color_major"
+            android:paddingTop="@dimen/title_bar_padding_top"
+            app:layout_constraintTop_toTopOf="parent"
+            app:leftIcon="@drawable/ic_back_white"
+            app:title="@string/diagnose_result"
+            app:titleColor="@color/white"
+            app:titleSize="18sp" />
+
+    <com.theone.framework.widget.MultiStateView
+            android:id="@+id/multiStateView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_background_1"
+            android:descendantFocusability="blocksDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:msv_emptyView="@layout/layout_empty_report">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:paddingBottom="@dimen/dimension_margin_vertical_1"
+                android:scrollbars="none" />
+    </com.theone.framework.widget.MultiStateView>
+
 
 </LinearLayout>

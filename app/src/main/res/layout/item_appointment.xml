@@ -19,6 +19,8 @@
         xmlns:tool="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimension_margin_horizon"
+        android:layout_marginTop="@dimen/margin_vertical_fixed_1"
         android:background="@drawable/shape_white_radius8"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -67,4 +69,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

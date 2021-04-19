@@ -21,5 +21,9 @@ data class AppointmentListRes(
     /**
      * 处理状态 0 未处理 1 已处理
      */
-    var status: String? = null
-) : Parcelable
+    var status: Int? = null
+) : Parcelable {
+    fun isStatusDone(): Boolean {
+        return status == 1
+    }
+}

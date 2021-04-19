@@ -7,14 +7,8 @@ package com.shownow.shownow.base.constant
  */
 object HttpStatusCode {
 
-    val NETWORK_EXCEPTION = -1000
-    val NOT_NETWORK_EXCEPTION = -1
-    val PARSE_EXCEPTION = -2
-    val EXCEPTION = -10
+    val NETWORK_EMPTY = -1
     val SUCCESS = 200
-    val SESSION_EXPIRED = 1003
-    val LOGIN_EXPIRED = 1006
-    val REFRESH_TOKEN_EXPIRED = 1042
-    val REFRESH_SESSION_FAILURE = -1005
+    val LOGIN_EXPIRED = 401
 
 }

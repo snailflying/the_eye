@@ -96,4 +96,7 @@ dependencies {
 
     implementation "com.drakeet.multitype:multitype:${rootProject.ext.multitype}"
 
+    implementation "org.greenrobot:eventbus:${rootProject.ext.eventbus}"
+
+
 }

@@ -19,7 +19,7 @@ data class AppointmentAddReq(
     /**
      * 处理状态 0 未处理 1 已处理
      */
-    var status: String? = null
+    var status: Int? = null
 ) : Parcelable {
     fun setName(name: String?) {
         appointName = name

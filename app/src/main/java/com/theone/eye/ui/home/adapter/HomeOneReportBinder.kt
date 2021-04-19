@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.chenenyu.router.Router
 import com.drakeet.multitype.ItemViewBinder
+import com.theone.eye.R
 import com.theone.eye.databinding.RecycleHomeFloorOneBinding
 import com.theone.eye.ui.home.entity.FloorItemDemo
 import com.theone.framework.ext.clickWithTrigger
 import com.theone.framework.ext.dp2px
+import com.theone.framework.ext.getString
+import com.theone.framework.widget.toast.ToastUtil
 import java.io.Serializable
 import java.util.*
 
@@ -64,7 +67,11 @@ class HomeOneReportBinder :
                 view.setBackgroundResource(itemBean.iconRes)
             }
             view.clickWithTrigger {
-                Router.build(itemBean.navigateUrl).go(mContext)
+                if (!itemBean.navigateUrl.isNullOrEmpty()) {
+                    Router.build(itemBean.navigateUrl).go(mContext)
+                } else {
+                    ToastUtil.show(getString(R.string.comming_soon))
+                }
             }
         }
 

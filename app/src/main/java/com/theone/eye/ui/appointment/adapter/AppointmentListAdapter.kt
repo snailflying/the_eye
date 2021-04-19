@@ -11,7 +11,7 @@ import com.theone.eye.ui.appointment.entity.AppointmentListRes
  * @Date 4/18/21
  * @Description
  */
-class AppointmentListAdapter(private val function: (data: AppointmentListRes?) -> Unit) :
+class AppointmentListAdapter(private val function: OnClickCallback) :
     RecyclerView.Adapter<AppointmentListAdapter.ViewHolder>() {
 
     private var posts = emptyList<AppointmentListRes>()
@@ -36,8 +36,12 @@ class AppointmentListAdapter(private val function: (data: AppointmentListRes?) -
         return posts.size
     }
 
+    interface OnClickCallback {
+        fun onClick(data: AppointmentListRes?)
+    }
+
     class ViewHolder(
-        private val function: (data: AppointmentListRes?) -> Unit,
+        private val function: OnClickCallback,
         val itemViewBinding: ItemAppointmentBinding
     ) :
         RecyclerView.ViewHolder(itemViewBinding.root) {
@@ -46,7 +50,7 @@ class AppointmentListAdapter(private val function: (data: AppointmentListRes?) -
 
         init {
             itemView.setOnClickListener { v ->
-                function.invoke(clickResult)
+                function.onClick(clickResult)
             }
         }
     }
